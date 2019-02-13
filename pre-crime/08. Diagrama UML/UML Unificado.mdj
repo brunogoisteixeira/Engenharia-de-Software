@@ -45585,7 +45585,7 @@
 									"_parent": {
 										"$ref": "AAAAAAFkyN5A3ypBaO0="
 									},
-									"name": "Estatisticas",
+									"name": "Estatísticas",
 									"visibility": "public",
 									"attributes": [
 										{
@@ -47386,7 +47386,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "Estatisticas",
+											"text": "Estatísticas",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
