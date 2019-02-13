@@ -1,0 +1,1589 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PreCrimeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DIM_GRUPO_OBJETOS">
+          <Key>
+            <PropertyRef Name="ID_GRUPO_OBJETOS" />
+          </Key>
+          <Property Name="ID_GRUPO_OBJETOS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="COD_GRUPO_OBJETOS" Type="int" />
+          <Property Name="DECRICAO_GRUPO_OBJETO" Type="varchar" MaxLength="200" />
+          <Property Name="ID_OBJETOS_FURTADOS" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DIM_LOCALIDADE">
+          <Key>
+            <PropertyRef Name="ID_OCALIDADE" />
+          </Key>
+          <Property Name="ID_OCALIDADE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="COD_LOCALIDADE" Type="int" />
+          <Property Name="CIDADE" Type="varchar" MaxLength="50" />
+          <Property Name="ESTADO" Type="varchar" MaxLength="20" />
+          <Property Name="LATITUDE" Type="int" />
+          <Property Name="LONGITUDE" Type="int" />
+        </EntityType>
+        <EntityType Name="DIM_OBJETOS_FURTADOS">
+          <Key>
+            <PropertyRef Name="ID_OBJETOS_FURTADOS" />
+          </Key>
+          <Property Name="ID_OBJETOS_FURTADOS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="COD_OBJETOS_FURTADOS" Type="int" />
+          <Property Name="TIPO_OBJETO" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="DIM_TEMPO">
+          <Key>
+            <PropertyRef Name="ID_TEMPO" />
+          </Key>
+          <Property Name="ID_TEMPO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NIVEL" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DATA" Type="datetime" />
+          <Property Name="DIA" Type="smallint" />
+          <Property Name="DIADASEMANA" Type="varchar" MaxLength="25" />
+          <Property Name="DIAUTIL" Type="char" MaxLength="3" />
+          <Property Name="FERIADO" Type="char" MaxLength="3" />
+          <Property Name="TIPOFERIADO" Type="varchar" MaxLength="50" />
+          <Property Name="FIMSEMANA" Type="char" MaxLength="3" />
+          <Property Name="QUINZENA" Type="smallint" />
+          <Property Name="MES" Type="smallint" />
+          <Property Name="NOMEMES" Type="varchar" MaxLength="20" />
+          <Property Name="FIMMES" Type="char" MaxLength="3" />
+          <Property Name="TRIMESTRE" Type="smallint" />
+          <Property Name="NOMETRIMESTRE" Type="varchar" MaxLength="20" />
+          <Property Name="SEMESTRE" Type="smallint" />
+          <Property Name="NOMESEMESTRE" Type="varchar" MaxLength="20" />
+          <Property Name="ANO" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DIM_TIPO_CRIME">
+          <Key>
+            <PropertyRef Name="ID_TIPO_CRIME" />
+          </Key>
+          <Property Name="ID_TIPO_CRIME" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="COD_TIPO_CRIME" Type="int" />
+          <Property Name="TIPO" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="FATO_CADASTRO_CRIME">
+          <Key>
+            <PropertyRef Name="ID_CADASTRO_CRIME" />
+          </Key>
+          <Property Name="ID_CADASTRO_CRIME" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_TEMPO" Type="int" Nullable="false" />
+          <Property Name="ID_TIPO_CRIME" Type="int" Nullable="false" />
+          <Property Name="ID_OCALIDADE" Type="int" Nullable="false" />
+          <Property Name="QUANTIDADE" Type="int" Nullable="false" />
+          <Property Name="PREJUIZO" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="DESCRICAO_CRIME" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PROJETO_SAD.dbo.FATO_CRIME_LOCALIDADE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="FATO_CRIME_LOCALIDADE">
+          <Key>
+            <PropertyRef Name="ID_LOCALIDADE" />
+            <PropertyRef Name="QUANTIDADE" />
+          </Key>
+          <Property Name="ID_LOCALIDADE" Type="int" Nullable="false" />
+          <Property Name="QUANTIDADE" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PROJETO_SAD.dbo.TB_AUX_LOCALIDADE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TB_AUX_LOCALIDADE">
+          <Key>
+            <PropertyRef Name="DATA_CARGA" />
+            <PropertyRef Name="COD_CIDADE" />
+          </Key>
+          <Property Name="DATA_CARGA" Type="datetime" Nullable="false" />
+          <Property Name="COD_CIDADE" Type="int" Nullable="false" />
+          <Property Name="CIDADE" Type="varchar" MaxLength="50" />
+          <Property Name="ESTADO" Type="varchar" MaxLength="20" />
+          <Property Name="LATITUDE" Type="int" />
+          <Property Name="LONGITUDE" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PROJETO_SAD.dbo.TB_AUX_OCORRENCIA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TB_AUX_OCORRENCIA">
+          <Key>
+            <PropertyRef Name="DATA_CARGA" />
+            <PropertyRef Name="COD_OCORRENCIA" />
+          </Key>
+          <Property Name="DATA_CARGA" Type="datetime" Nullable="false" />
+          <Property Name="COD_OCORRENCIA" Type="int" Nullable="false" />
+          <Property Name="DATA" Type="datetime" />
+          <Property Name="LATITUDE" Type="int" />
+          <Property Name="LONGITUDE" Type="int" />
+          <Property Name="DESCRICAO_OCORRENCIA" Type="varchar" MaxLength="200" />
+          <Property Name="HORA" Type="datetime" />
+          <Property Name="PREJUIZO" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="COD_USUARIO" Type="int" />
+          <Property Name="COD_TIPO_CRIME" Type="int" />
+          <Property Name="COD_CIDADE" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PROJETO_SAD.dbo.TB_AUX_OCORRENCIA_OBJETOS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TB_AUX_OCORRENCIA_OBJETOS">
+          <Key>
+            <PropertyRef Name="DATA_CARGA" />
+            <PropertyRef Name="COD_OCORRENCIA_OBJETO" />
+          </Key>
+          <Property Name="DATA_CARGA" Type="datetime" Nullable="false" />
+          <Property Name="COD_OCORRENCIA_OBJETO" Type="int" Nullable="false" />
+          <Property Name="COD_TIPO_OBJETO" Type="int" />
+          <Property Name="DECRICAO_TIPO_OBJETO_OCORRENCIA" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PROJETO_SAD.dbo.TB_AUX_TIPO_DE_CRIME' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TB_AUX_TIPO_DE_CRIME">
+          <Key>
+            <PropertyRef Name="DATA_CARGA" />
+            <PropertyRef Name="COD_TIPO_CRIME" />
+          </Key>
+          <Property Name="DATA_CARGA" Type="datetime" Nullable="false" />
+          <Property Name="COD_TIPO_CRIME" Type="int" Nullable="false" />
+          <Property Name="TIPO_CRIME" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PROJETO_SAD.dbo.TB_AUX_TIPO_OBJETOS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TB_AUX_TIPO_OBJETOS">
+          <Key>
+            <PropertyRef Name="DATA_CARGA" />
+            <PropertyRef Name="COD_TIPO_OBJETOS" />
+          </Key>
+          <Property Name="DATA_CARGA" Type="datetime" Nullable="false" />
+          <Property Name="COD_TIPO_OBJETOS" Type="int" Nullable="false" />
+          <Property Name="TIPO_OBJETO" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="TB_CIDADE">
+          <Key>
+            <PropertyRef Name="COD_CIDADE" />
+          </Key>
+          <Property Name="COD_CIDADE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CIDADE" Type="varchar" MaxLength="50" />
+          <Property Name="LATITUDE" Type="int" />
+          <Property Name="LONGITUDE" Type="int" />
+          <Property Name="COD_ESTADO" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_CONFIGURACAO">
+          <Key>
+            <PropertyRef Name="COD_CONFIGURACAO" />
+          </Key>
+          <Property Name="COD_CONFIGURACAO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CIDADE" Type="varchar" MaxLength="50" />
+          <Property Name="ESTADO" Type="varchar" MaxLength="20" />
+          <Property Name="COD_USUARIO" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_ESTADO">
+          <Key>
+            <PropertyRef Name="COD_ESTADO" />
+          </Key>
+          <Property Name="COD_ESTADO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ESTADO" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="TB_ESTATISTICAS">
+          <Key>
+            <PropertyRef Name="COD_ESTATISTICA" />
+          </Key>
+          <Property Name="COD_ESTATISTICA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PERCENTUAL_CRIME" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="QUANTIDADE_CRIME" Type="int" />
+          <Property Name="HORARIO_CRIME" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="COD_CIDADE" Type="int" Nullable="false" />
+          <Property Name="COD_TIPO_CRIME" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_OCORRENCIA">
+          <Key>
+            <PropertyRef Name="COD_OCORRENCIA" />
+          </Key>
+          <Property Name="COD_OCORRENCIA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DATA" Type="datetime" />
+          <Property Name="LATITUDE" Type="int" />
+          <Property Name="LONGITUDE" Type="int" />
+          <Property Name="DESCRICAO_OCORRENCIA" Type="varchar" MaxLength="200" />
+          <Property Name="HORA" Type="datetime" />
+          <Property Name="PREJUIZO" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="COD_USUARIO" Type="int" Nullable="false" />
+          <Property Name="COD_TIPO_CRIME" Type="int" Nullable="false" />
+          <Property Name="COD_CIDADE" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_TIPO_CRIME">
+          <Key>
+            <PropertyRef Name="COD_TIPO_CRIME" />
+          </Key>
+          <Property Name="COD_TIPO_CRIME" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TIPO_CRIME" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="TB_TIPO_OBJETO">
+          <Key>
+            <PropertyRef Name="COD_TIPO_OBJETO" />
+          </Key>
+          <Property Name="COD_TIPO_OBJETO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRICAO_OBJETO" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="TB_TIPO_OBJETO_OCORRENCIA">
+          <Key>
+            <PropertyRef Name="COD_TIPO_ODJETO_OCORRENCIA" />
+          </Key>
+          <Property Name="COD_TIPO_ODJETO_OCORRENCIA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DECRICAO_TIPO_OBJETO_OCORRENCIA" Type="varchar" MaxLength="200" />
+          <Property Name="COD_TIPO_OBJETO" Type="int" Nullable="false" />
+          <Property Name="COD_OCORRENCIA" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_USUARIO">
+          <Key>
+            <PropertyRef Name="COD_USUARIO" />
+          </Key>
+          <Property Name="COD_USUARIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="30" />
+          <Property Name="SENHA" Type="varchar" MaxLength="16" />
+          <Property Name="CIDADE" Type="varchar" MaxLength="50" />
+          <Property Name="ESTADO" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PROJETO_SAD.dbo.TB_VIOLACAO_LOCALIDADE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TB_VIOLACAO_LOCALIDADE">
+          <Key>
+            <PropertyRef Name="DATA_CARGA" />
+            <PropertyRef Name="DATA_VIOLACAO" />
+            <PropertyRef Name="DESCRICAO_VIOLACAO" />
+          </Key>
+          <Property Name="DATA_CARGA" Type="datetime" Nullable="false" />
+          <Property Name="COD_CIDADE" Type="int" />
+          <Property Name="CIDADE" Type="varchar" MaxLength="50" />
+          <Property Name="ESTADO" Type="varchar" MaxLength="20" />
+          <Property Name="LATITUDE" Type="int" />
+          <Property Name="LONGITUDE" Type="int" />
+          <Property Name="DATA_VIOLACAO" Type="datetime" Nullable="false" />
+          <Property Name="DESCRICAO_VIOLACAO" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PROJETO_SAD.dbo.TB_VIOLACAO_OCORRENCIA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TB_VIOLACAO_OCORRENCIA">
+          <Key>
+            <PropertyRef Name="DATA_VIOLACAO" />
+            <PropertyRef Name="DESCRICAO_VIOLACAO" />
+          </Key>
+          <Property Name="DATA_CARGA" Type="datetime" />
+          <Property Name="ID_TEMPO" Type="int" />
+          <Property Name="ID_TIPO_CRIME" Type="int" />
+          <Property Name="ID_OCALIDADE" Type="int" />
+          <Property Name="QUANTIDADE" Type="int" />
+          <Property Name="PREJUIZO" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="DESCRICAO_CRIME" Type="varchar" MaxLength="200" />
+          <Property Name="DATA_VIOLACAO" Type="datetime" Nullable="false" />
+          <Property Name="DESCRICAO_VIOLACAO" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PROJETO_SAD.dbo.TB_VIOLACAO_OCORRENCIA_OBJETOS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TB_VIOLACAO_OCORRENCIA_OBJETOS">
+          <Key>
+            <PropertyRef Name="DATA_CARGA" />
+            <PropertyRef Name="DATA_VIOLACAO" />
+            <PropertyRef Name="DESCRICAO_VIOLACAO" />
+          </Key>
+          <Property Name="DATA_CARGA" Type="datetime" Nullable="false" />
+          <Property Name="COD_OCORRENCIA_OBJETO" Type="int" />
+          <Property Name="COD_TIPO_OBJETO" Type="int" />
+          <Property Name="DECRICAO_TIPO_OBJETO_OCORRENCIA" Type="varchar" MaxLength="200" />
+          <Property Name="DATA_VIOLACAO" Type="datetime" Nullable="false" />
+          <Property Name="DESCRICAO_VIOLACAO" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PROJETO_SAD.dbo.TB_VIOLACAO_TIPO_CRIME' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TB_VIOLACAO_TIPO_CRIME">
+          <Key>
+            <PropertyRef Name="DATA_CARGA" />
+            <PropertyRef Name="DATA_VIOLACAO" />
+            <PropertyRef Name="DESCRICAO_VIOLACAO" />
+          </Key>
+          <Property Name="DATA_CARGA" Type="datetime" Nullable="false" />
+          <Property Name="COD_TIPO_CRIME" Type="int" />
+          <Property Name="TIPO_CRIME" Type="varchar" MaxLength="20" />
+          <Property Name="DATA_VIOLACAO" Type="datetime" Nullable="false" />
+          <Property Name="DESCRICAO_VIOLACAO" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PROJETO_SAD.dbo.TB_VIOLACAO_TIPO_OBJETOS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TB_VIOLACAO_TIPO_OBJETOS">
+          <Key>
+            <PropertyRef Name="DATA_CARGA" />
+            <PropertyRef Name="DATA_VIOLACAO" />
+            <PropertyRef Name="DESCRICAO_VIOLACAO" />
+          </Key>
+          <Property Name="DATA_CARGA" Type="datetime" Nullable="false" />
+          <Property Name="COD_TIPO_OBJETOS" Type="int" />
+          <Property Name="TIPO_OBJETO" Type="varchar" MaxLength="200" />
+          <Property Name="DATA_VIOLACAO" Type="datetime" Nullable="false" />
+          <Property Name="DESCRICAO_VIOLACAO" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CIDADE_ESTATISTICA">
+          <End Role="TB_CIDADE" Type="Self.TB_CIDADE" Multiplicity="1" />
+          <End Role="TB_ESTATISTICAS" Type="Self.TB_ESTATISTICAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_CIDADE">
+              <PropertyRef Name="COD_CIDADE" />
+            </Principal>
+            <Dependent Role="TB_ESTATISTICAS">
+              <PropertyRef Name="COD_CIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CIDADE_OCORRENCIA">
+          <End Role="TB_CIDADE" Type="Self.TB_CIDADE" Multiplicity="1" />
+          <End Role="TB_OCORRENCIA" Type="Self.TB_OCORRENCIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_CIDADE">
+              <PropertyRef Name="COD_CIDADE" />
+            </Principal>
+            <Dependent Role="TB_OCORRENCIA">
+              <PropertyRef Name="COD_CIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DIM_LOCALIDADE">
+          <End Role="DIM_LOCALIDADE" Type="Self.DIM_LOCALIDADE" Multiplicity="1" />
+          <End Role="FATO_CADASTRO_CRIME" Type="Self.FATO_CADASTRO_CRIME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIM_LOCALIDADE">
+              <PropertyRef Name="ID_OCALIDADE" />
+            </Principal>
+            <Dependent Role="FATO_CADASTRO_CRIME">
+              <PropertyRef Name="ID_OCALIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DIM_OBJETOS_FURTADOS">
+          <End Role="DIM_OBJETOS_FURTADOS" Type="Self.DIM_OBJETOS_FURTADOS" Multiplicity="1" />
+          <End Role="DIM_GRUPO_OBJETOS" Type="Self.DIM_GRUPO_OBJETOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIM_OBJETOS_FURTADOS">
+              <PropertyRef Name="ID_OBJETOS_FURTADOS" />
+            </Principal>
+            <Dependent Role="DIM_GRUPO_OBJETOS">
+              <PropertyRef Name="ID_OBJETOS_FURTADOS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DIM_TEMPO">
+          <End Role="DIM_TEMPO" Type="Self.DIM_TEMPO" Multiplicity="1" />
+          <End Role="FATO_CADASTRO_CRIME" Type="Self.FATO_CADASTRO_CRIME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIM_TEMPO">
+              <PropertyRef Name="ID_TEMPO" />
+            </Principal>
+            <Dependent Role="FATO_CADASTRO_CRIME">
+              <PropertyRef Name="ID_TEMPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DIM_TIPO_CRIME">
+          <End Role="DIM_TIPO_CRIME" Type="Self.DIM_TIPO_CRIME" Multiplicity="1" />
+          <End Role="FATO_CADASTRO_CRIME" Type="Self.FATO_CADASTRO_CRIME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIM_TIPO_CRIME">
+              <PropertyRef Name="ID_TIPO_CRIME" />
+            </Principal>
+            <Dependent Role="FATO_CADASTRO_CRIME">
+              <PropertyRef Name="ID_TIPO_CRIME" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ESTADO_CIDADE">
+          <End Role="TB_ESTADO" Type="Self.TB_ESTADO" Multiplicity="1" />
+          <End Role="TB_CIDADE" Type="Self.TB_CIDADE" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="TB_ESTADO">
+              <PropertyRef Name="COD_ESTADO" />
+            </Principal>
+            <Dependent Role="TB_CIDADE">
+              <PropertyRef Name="COD_CIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_OCORRENCIA_TB_TIPO_OBJETO_OCORRENCIA">
+          <End Role="TB_OCORRENCIA" Type="Self.TB_OCORRENCIA" Multiplicity="1" />
+          <End Role="TB_TIPO_OBJETO_OCORRENCIA" Type="Self.TB_TIPO_OBJETO_OCORRENCIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_OCORRENCIA">
+              <PropertyRef Name="COD_OCORRENCIA" />
+            </Principal>
+            <Dependent Role="TB_TIPO_OBJETO_OCORRENCIA">
+              <PropertyRef Name="COD_OCORRENCIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_TIPO_OBJETO_TB_TIPO_OBJETO_OCORRENCIA">
+          <End Role="TB_TIPO_OBJETO" Type="Self.TB_TIPO_OBJETO" Multiplicity="1" />
+          <End Role="TB_TIPO_OBJETO_OCORRENCIA" Type="Self.TB_TIPO_OBJETO_OCORRENCIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TIPO_OBJETO">
+              <PropertyRef Name="COD_TIPO_OBJETO" />
+            </Principal>
+            <Dependent Role="TB_TIPO_OBJETO_OCORRENCIA">
+              <PropertyRef Name="COD_TIPO_OBJETO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TIPO_CRIME_OCORRENCIA">
+          <End Role="TB_TIPO_CRIME" Type="Self.TB_TIPO_CRIME" Multiplicity="1" />
+          <End Role="TB_OCORRENCIA" Type="Self.TB_OCORRENCIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TIPO_CRIME">
+              <PropertyRef Name="COD_TIPO_CRIME" />
+            </Principal>
+            <Dependent Role="TB_OCORRENCIA">
+              <PropertyRef Name="COD_TIPO_CRIME" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_CONFIGURACAO">
+          <End Role="TB_USUARIO" Type="Self.TB_USUARIO" Multiplicity="1" />
+          <End Role="TB_CONFIGURACAO" Type="Self.TB_CONFIGURACAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_USUARIO">
+              <PropertyRef Name="COD_USUARIO" />
+            </Principal>
+            <Dependent Role="TB_CONFIGURACAO">
+              <PropertyRef Name="COD_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_OCORRENCIA">
+          <End Role="TB_USUARIO" Type="Self.TB_USUARIO" Multiplicity="1" />
+          <End Role="TB_OCORRENCIA" Type="Self.TB_OCORRENCIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_USUARIO">
+              <PropertyRef Name="COD_USUARIO" />
+            </Principal>
+            <Dependent Role="TB_OCORRENCIA">
+              <PropertyRef Name="COD_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="INSERT_TB_OCORRENCIA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DT_INICIAL" Type="datetime" Mode="In" />
+          <Parameter Name="DT_FINAL" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="PRO_AGREGADO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="PROCEDURE_DIM_LOCALIDADE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DATACARGA" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="PROCEDURE_DIM_OBJETOS_FURTADOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DATACARGA" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="PROCEDURE_DIM_TIPO_CRIME" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DATACARGA" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="PROCEDURE_GRUPO_OBJETOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DATACARGA" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="SP_DIM_TEMPO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DATAINICIO" Type="datetime" Mode="In" />
+          <Parameter Name="DATAFIM" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="SP_FATO_CADASTRAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DATACARGA" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="SP_OLTP_LOCALIDADE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DATACARGA" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="SP_OLTP_OCORRENCIA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DATACARGA" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="SP_OLTP_OCORRENCIA_TIPO_OBJETO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DATACARGA" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="SP_OLTP_TIPO_CRIME" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DATACARGA" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="SP_OLTP_TIPO_OBJETO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DATACARGA" Type="datetime" Mode="In" />
+        </Function>
+        <EntityContainer Name="PreCrimeModelStoreContainer">
+          <EntitySet Name="DIM_GRUPO_OBJETOS" EntityType="Self.DIM_GRUPO_OBJETOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DIM_LOCALIDADE" EntityType="Self.DIM_LOCALIDADE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DIM_OBJETOS_FURTADOS" EntityType="Self.DIM_OBJETOS_FURTADOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DIM_TEMPO" EntityType="Self.DIM_TEMPO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DIM_TIPO_CRIME" EntityType="Self.DIM_TIPO_CRIME" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FATO_CADASTRO_CRIME" EntityType="Self.FATO_CADASTRO_CRIME" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_CIDADE" EntityType="Self.TB_CIDADE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_CONFIGURACAO" EntityType="Self.TB_CONFIGURACAO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_ESTADO" EntityType="Self.TB_ESTADO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_ESTATISTICAS" EntityType="Self.TB_ESTATISTICAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_OCORRENCIA" EntityType="Self.TB_OCORRENCIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_TIPO_CRIME" EntityType="Self.TB_TIPO_CRIME" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_TIPO_OBJETO" EntityType="Self.TB_TIPO_OBJETO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_TIPO_OBJETO_OCORRENCIA" EntityType="Self.TB_TIPO_OBJETO_OCORRENCIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_USUARIO" EntityType="Self.TB_USUARIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FATO_CRIME_LOCALIDADE" EntityType="Self.FATO_CRIME_LOCALIDADE" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [FATO_CRIME_LOCALIDADE].[ID_LOCALIDADE] AS [ID_LOCALIDADE], 
+    [FATO_CRIME_LOCALIDADE].[QUANTIDADE] AS [QUANTIDADE]
+    FROM [dbo].[FATO_CRIME_LOCALIDADE] AS [FATO_CRIME_LOCALIDADE]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TB_AUX_LOCALIDADE" EntityType="Self.TB_AUX_LOCALIDADE" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TB_AUX_LOCALIDADE].[DATA_CARGA] AS [DATA_CARGA], 
+    [TB_AUX_LOCALIDADE].[COD_CIDADE] AS [COD_CIDADE], 
+    [TB_AUX_LOCALIDADE].[CIDADE] AS [CIDADE], 
+    [TB_AUX_LOCALIDADE].[ESTADO] AS [ESTADO], 
+    [TB_AUX_LOCALIDADE].[LATITUDE] AS [LATITUDE], 
+    [TB_AUX_LOCALIDADE].[LONGITUDE] AS [LONGITUDE]
+    FROM [dbo].[TB_AUX_LOCALIDADE] AS [TB_AUX_LOCALIDADE]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TB_AUX_OCORRENCIA" EntityType="Self.TB_AUX_OCORRENCIA" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TB_AUX_OCORRENCIA].[DATA_CARGA] AS [DATA_CARGA], 
+    [TB_AUX_OCORRENCIA].[COD_OCORRENCIA] AS [COD_OCORRENCIA], 
+    [TB_AUX_OCORRENCIA].[DATA] AS [DATA], 
+    [TB_AUX_OCORRENCIA].[LATITUDE] AS [LATITUDE], 
+    [TB_AUX_OCORRENCIA].[LONGITUDE] AS [LONGITUDE], 
+    [TB_AUX_OCORRENCIA].[DESCRICAO_OCORRENCIA] AS [DESCRICAO_OCORRENCIA], 
+    [TB_AUX_OCORRENCIA].[HORA] AS [HORA], 
+    [TB_AUX_OCORRENCIA].[PREJUIZO] AS [PREJUIZO], 
+    [TB_AUX_OCORRENCIA].[COD_USUARIO] AS [COD_USUARIO], 
+    [TB_AUX_OCORRENCIA].[COD_TIPO_CRIME] AS [COD_TIPO_CRIME], 
+    [TB_AUX_OCORRENCIA].[COD_CIDADE] AS [COD_CIDADE]
+    FROM [dbo].[TB_AUX_OCORRENCIA] AS [TB_AUX_OCORRENCIA]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TB_AUX_OCORRENCIA_OBJETOS" EntityType="Self.TB_AUX_OCORRENCIA_OBJETOS" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TB_AUX_OCORRENCIA_OBJETOS].[DATA_CARGA] AS [DATA_CARGA], 
+    [TB_AUX_OCORRENCIA_OBJETOS].[COD_OCORRENCIA_OBJETO] AS [COD_OCORRENCIA_OBJETO], 
+    [TB_AUX_OCORRENCIA_OBJETOS].[COD_TIPO_OBJETO] AS [COD_TIPO_OBJETO], 
+    [TB_AUX_OCORRENCIA_OBJETOS].[DECRICAO_TIPO_OBJETO_OCORRENCIA] AS [DECRICAO_TIPO_OBJETO_OCORRENCIA]
+    FROM [dbo].[TB_AUX_OCORRENCIA_OBJETOS] AS [TB_AUX_OCORRENCIA_OBJETOS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TB_AUX_TIPO_DE_CRIME" EntityType="Self.TB_AUX_TIPO_DE_CRIME" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TB_AUX_TIPO_DE_CRIME].[DATA_CARGA] AS [DATA_CARGA], 
+    [TB_AUX_TIPO_DE_CRIME].[COD_TIPO_CRIME] AS [COD_TIPO_CRIME], 
+    [TB_AUX_TIPO_DE_CRIME].[TIPO_CRIME] AS [TIPO_CRIME]
+    FROM [dbo].[TB_AUX_TIPO_DE_CRIME] AS [TB_AUX_TIPO_DE_CRIME]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TB_AUX_TIPO_OBJETOS" EntityType="Self.TB_AUX_TIPO_OBJETOS" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TB_AUX_TIPO_OBJETOS].[DATA_CARGA] AS [DATA_CARGA], 
+    [TB_AUX_TIPO_OBJETOS].[COD_TIPO_OBJETOS] AS [COD_TIPO_OBJETOS], 
+    [TB_AUX_TIPO_OBJETOS].[TIPO_OBJETO] AS [TIPO_OBJETO]
+    FROM [dbo].[TB_AUX_TIPO_OBJETOS] AS [TB_AUX_TIPO_OBJETOS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TB_VIOLACAO_LOCALIDADE" EntityType="Self.TB_VIOLACAO_LOCALIDADE" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TB_VIOLACAO_LOCALIDADE].[DATA_CARGA] AS [DATA_CARGA], 
+    [TB_VIOLACAO_LOCALIDADE].[COD_CIDADE] AS [COD_CIDADE], 
+    [TB_VIOLACAO_LOCALIDADE].[CIDADE] AS [CIDADE], 
+    [TB_VIOLACAO_LOCALIDADE].[ESTADO] AS [ESTADO], 
+    [TB_VIOLACAO_LOCALIDADE].[LATITUDE] AS [LATITUDE], 
+    [TB_VIOLACAO_LOCALIDADE].[LONGITUDE] AS [LONGITUDE], 
+    [TB_VIOLACAO_LOCALIDADE].[DATA_VIOLACAO] AS [DATA_VIOLACAO], 
+    [TB_VIOLACAO_LOCALIDADE].[DESCRICAO_VIOLACAO] AS [DESCRICAO_VIOLACAO]
+    FROM [dbo].[TB_VIOLACAO_LOCALIDADE] AS [TB_VIOLACAO_LOCALIDADE]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TB_VIOLACAO_OCORRENCIA" EntityType="Self.TB_VIOLACAO_OCORRENCIA" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TB_VIOLACAO_OCORRENCIA].[DATA_CARGA] AS [DATA_CARGA], 
+    [TB_VIOLACAO_OCORRENCIA].[ID_TEMPO] AS [ID_TEMPO], 
+    [TB_VIOLACAO_OCORRENCIA].[ID_TIPO_CRIME] AS [ID_TIPO_CRIME], 
+    [TB_VIOLACAO_OCORRENCIA].[ID_OCALIDADE] AS [ID_OCALIDADE], 
+    [TB_VIOLACAO_OCORRENCIA].[QUANTIDADE] AS [QUANTIDADE], 
+    [TB_VIOLACAO_OCORRENCIA].[PREJUIZO] AS [PREJUIZO], 
+    [TB_VIOLACAO_OCORRENCIA].[DESCRICAO_CRIME] AS [DESCRICAO_CRIME], 
+    [TB_VIOLACAO_OCORRENCIA].[DATA_VIOLACAO] AS [DATA_VIOLACAO], 
+    [TB_VIOLACAO_OCORRENCIA].[DESCRICAO_VIOLACAO] AS [DESCRICAO_VIOLACAO]
+    FROM [dbo].[TB_VIOLACAO_OCORRENCIA] AS [TB_VIOLACAO_OCORRENCIA]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TB_VIOLACAO_OCORRENCIA_OBJETOS" EntityType="Self.TB_VIOLACAO_OCORRENCIA_OBJETOS" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TB_VIOLACAO_OCORRENCIA_OBJETOS].[DATA_CARGA] AS [DATA_CARGA], 
+    [TB_VIOLACAO_OCORRENCIA_OBJETOS].[COD_OCORRENCIA_OBJETO] AS [COD_OCORRENCIA_OBJETO], 
+    [TB_VIOLACAO_OCORRENCIA_OBJETOS].[COD_TIPO_OBJETO] AS [COD_TIPO_OBJETO], 
+    [TB_VIOLACAO_OCORRENCIA_OBJETOS].[DECRICAO_TIPO_OBJETO_OCORRENCIA] AS [DECRICAO_TIPO_OBJETO_OCORRENCIA], 
+    [TB_VIOLACAO_OCORRENCIA_OBJETOS].[DATA_VIOLACAO] AS [DATA_VIOLACAO], 
+    [TB_VIOLACAO_OCORRENCIA_OBJETOS].[DESCRICAO_VIOLACAO] AS [DESCRICAO_VIOLACAO]
+    FROM [dbo].[TB_VIOLACAO_OCORRENCIA_OBJETOS] AS [TB_VIOLACAO_OCORRENCIA_OBJETOS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TB_VIOLACAO_TIPO_CRIME" EntityType="Self.TB_VIOLACAO_TIPO_CRIME" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TB_VIOLACAO_TIPO_CRIME].[DATA_CARGA] AS [DATA_CARGA], 
+    [TB_VIOLACAO_TIPO_CRIME].[COD_TIPO_CRIME] AS [COD_TIPO_CRIME], 
+    [TB_VIOLACAO_TIPO_CRIME].[TIPO_CRIME] AS [TIPO_CRIME], 
+    [TB_VIOLACAO_TIPO_CRIME].[DATA_VIOLACAO] AS [DATA_VIOLACAO], 
+    [TB_VIOLACAO_TIPO_CRIME].[DESCRICAO_VIOLACAO] AS [DESCRICAO_VIOLACAO]
+    FROM [dbo].[TB_VIOLACAO_TIPO_CRIME] AS [TB_VIOLACAO_TIPO_CRIME]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TB_VIOLACAO_TIPO_OBJETOS" EntityType="Self.TB_VIOLACAO_TIPO_OBJETOS" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TB_VIOLACAO_TIPO_OBJETOS].[DATA_CARGA] AS [DATA_CARGA], 
+    [TB_VIOLACAO_TIPO_OBJETOS].[COD_TIPO_OBJETOS] AS [COD_TIPO_OBJETOS], 
+    [TB_VIOLACAO_TIPO_OBJETOS].[TIPO_OBJETO] AS [TIPO_OBJETO], 
+    [TB_VIOLACAO_TIPO_OBJETOS].[DATA_VIOLACAO] AS [DATA_VIOLACAO], 
+    [TB_VIOLACAO_TIPO_OBJETOS].[DESCRICAO_VIOLACAO] AS [DESCRICAO_VIOLACAO]
+    FROM [dbo].[TB_VIOLACAO_TIPO_OBJETOS] AS [TB_VIOLACAO_TIPO_OBJETOS]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_CIDADE_ESTATISTICA" Association="Self.FK_CIDADE_ESTATISTICA">
+            <End Role="TB_CIDADE" EntitySet="TB_CIDADE" />
+            <End Role="TB_ESTATISTICAS" EntitySet="TB_ESTATISTICAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CIDADE_OCORRENCIA" Association="Self.FK_CIDADE_OCORRENCIA">
+            <End Role="TB_CIDADE" EntitySet="TB_CIDADE" />
+            <End Role="TB_OCORRENCIA" EntitySet="TB_OCORRENCIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DIM_LOCALIDADE" Association="Self.FK_DIM_LOCALIDADE">
+            <End Role="DIM_LOCALIDADE" EntitySet="DIM_LOCALIDADE" />
+            <End Role="FATO_CADASTRO_CRIME" EntitySet="FATO_CADASTRO_CRIME" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DIM_OBJETOS_FURTADOS" Association="Self.FK_DIM_OBJETOS_FURTADOS">
+            <End Role="DIM_OBJETOS_FURTADOS" EntitySet="DIM_OBJETOS_FURTADOS" />
+            <End Role="DIM_GRUPO_OBJETOS" EntitySet="DIM_GRUPO_OBJETOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DIM_TEMPO" Association="Self.FK_DIM_TEMPO">
+            <End Role="DIM_TEMPO" EntitySet="DIM_TEMPO" />
+            <End Role="FATO_CADASTRO_CRIME" EntitySet="FATO_CADASTRO_CRIME" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DIM_TIPO_CRIME" Association="Self.FK_DIM_TIPO_CRIME">
+            <End Role="DIM_TIPO_CRIME" EntitySet="DIM_TIPO_CRIME" />
+            <End Role="FATO_CADASTRO_CRIME" EntitySet="FATO_CADASTRO_CRIME" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ESTADO_CIDADE" Association="Self.FK_ESTADO_CIDADE">
+            <End Role="TB_ESTADO" EntitySet="TB_ESTADO" />
+            <End Role="TB_CIDADE" EntitySet="TB_CIDADE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_OCORRENCIA_TB_TIPO_OBJETO_OCORRENCIA" Association="Self.FK_TB_OCORRENCIA_TB_TIPO_OBJETO_OCORRENCIA">
+            <End Role="TB_OCORRENCIA" EntitySet="TB_OCORRENCIA" />
+            <End Role="TB_TIPO_OBJETO_OCORRENCIA" EntitySet="TB_TIPO_OBJETO_OCORRENCIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_TIPO_OBJETO_TB_TIPO_OBJETO_OCORRENCIA" Association="Self.FK_TB_TIPO_OBJETO_TB_TIPO_OBJETO_OCORRENCIA">
+            <End Role="TB_TIPO_OBJETO" EntitySet="TB_TIPO_OBJETO" />
+            <End Role="TB_TIPO_OBJETO_OCORRENCIA" EntitySet="TB_TIPO_OBJETO_OCORRENCIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TIPO_CRIME_OCORRENCIA" Association="Self.FK_TIPO_CRIME_OCORRENCIA">
+            <End Role="TB_TIPO_CRIME" EntitySet="TB_TIPO_CRIME" />
+            <End Role="TB_OCORRENCIA" EntitySet="TB_OCORRENCIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_CONFIGURACAO" Association="Self.FK_USUARIO_CONFIGURACAO">
+            <End Role="TB_USUARIO" EntitySet="TB_USUARIO" />
+            <End Role="TB_CONFIGURACAO" EntitySet="TB_CONFIGURACAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_OCORRENCIA" Association="Self.FK_USUARIO_OCORRENCIA">
+            <End Role="TB_USUARIO" EntitySet="TB_USUARIO" />
+            <End Role="TB_OCORRENCIA" EntitySet="TB_OCORRENCIA" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PreCrimeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DIM_GRUPO_OBJETOS">
+          <Key>
+            <PropertyRef Name="ID_GRUPO_OBJETOS" />
+          </Key>
+          <Property Name="ID_GRUPO_OBJETOS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="COD_GRUPO_OBJETOS" Type="Int32" />
+          <Property Name="DECRICAO_GRUPO_OBJETO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ID_OBJETOS_FURTADOS" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DIM_OBJETOS_FURTADOS" Relationship="Self.FK_DIM_OBJETOS_FURTADOS" FromRole="DIM_GRUPO_OBJETOS" ToRole="DIM_OBJETOS_FURTADOS" />
+        </EntityType>
+        <EntityType Name="DIM_LOCALIDADE">
+          <Key>
+            <PropertyRef Name="ID_OCALIDADE" />
+          </Key>
+          <Property Name="ID_OCALIDADE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="COD_LOCALIDADE" Type="Int32" />
+          <Property Name="CIDADE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LATITUDE" Type="Int32" />
+          <Property Name="LONGITUDE" Type="Int32" />
+          <NavigationProperty Name="FATO_CADASTRO_CRIME" Relationship="Self.FK_DIM_LOCALIDADE" FromRole="DIM_LOCALIDADE" ToRole="FATO_CADASTRO_CRIME" />
+        </EntityType>
+        <EntityType Name="DIM_OBJETOS_FURTADOS">
+          <Key>
+            <PropertyRef Name="ID_OBJETOS_FURTADOS" />
+          </Key>
+          <Property Name="ID_OBJETOS_FURTADOS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="COD_OBJETOS_FURTADOS" Type="Int32" />
+          <Property Name="TIPO_OBJETO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DIM_GRUPO_OBJETOS" Relationship="Self.FK_DIM_OBJETOS_FURTADOS" FromRole="DIM_OBJETOS_FURTADOS" ToRole="DIM_GRUPO_OBJETOS" />
+        </EntityType>
+        <EntityType Name="DIM_TEMPO">
+          <Key>
+            <PropertyRef Name="ID_TEMPO" />
+          </Key>
+          <Property Name="ID_TEMPO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NIVEL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DATA" Type="DateTime" Precision="3" />
+          <Property Name="DIA" Type="Int16" />
+          <Property Name="DIADASEMANA" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="DIAUTIL" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="FERIADO" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="TIPOFERIADO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FIMSEMANA" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="QUINZENA" Type="Int16" />
+          <Property Name="MES" Type="Int16" />
+          <Property Name="NOMEMES" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FIMMES" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="TRIMESTRE" Type="Int16" />
+          <Property Name="NOMETRIMESTRE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SEMESTRE" Type="Int16" />
+          <Property Name="NOMESEMESTRE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ANO" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="FATO_CADASTRO_CRIME" Relationship="Self.FK_DIM_TEMPO" FromRole="DIM_TEMPO" ToRole="FATO_CADASTRO_CRIME" />
+        </EntityType>
+        <EntityType Name="DIM_TIPO_CRIME">
+          <Key>
+            <PropertyRef Name="ID_TIPO_CRIME" />
+          </Key>
+          <Property Name="ID_TIPO_CRIME" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="COD_TIPO_CRIME" Type="Int32" />
+          <Property Name="TIPO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="FATO_CADASTRO_CRIME" Relationship="Self.FK_DIM_TIPO_CRIME" FromRole="DIM_TIPO_CRIME" ToRole="FATO_CADASTRO_CRIME" />
+        </EntityType>
+        <EntityType Name="FATO_CADASTRO_CRIME">
+          <Key>
+            <PropertyRef Name="ID_CADASTRO_CRIME" />
+          </Key>
+          <Property Name="ID_CADASTRO_CRIME" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_TEMPO" Type="Int32" Nullable="false" />
+          <Property Name="ID_TIPO_CRIME" Type="Int32" Nullable="false" />
+          <Property Name="ID_OCALIDADE" Type="Int32" Nullable="false" />
+          <Property Name="QUANTIDADE" Type="Int32" Nullable="false" />
+          <Property Name="PREJUIZO" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="DESCRICAO_CRIME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DIM_LOCALIDADE" Relationship="Self.FK_DIM_LOCALIDADE" FromRole="FATO_CADASTRO_CRIME" ToRole="DIM_LOCALIDADE" />
+          <NavigationProperty Name="DIM_TEMPO" Relationship="Self.FK_DIM_TEMPO" FromRole="FATO_CADASTRO_CRIME" ToRole="DIM_TEMPO" />
+          <NavigationProperty Name="DIM_TIPO_CRIME" Relationship="Self.FK_DIM_TIPO_CRIME" FromRole="FATO_CADASTRO_CRIME" ToRole="DIM_TIPO_CRIME" />
+        </EntityType>
+        <EntityType Name="TB_CIDADE">
+          <Key>
+            <PropertyRef Name="COD_CIDADE" />
+          </Key>
+          <Property Name="COD_CIDADE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CIDADE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LATITUDE" Type="Int32" />
+          <Property Name="LONGITUDE" Type="Int32" />
+          <Property Name="COD_ESTADO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TB_ESTATISTICAS" Relationship="Self.FK_CIDADE_ESTATISTICA" FromRole="TB_CIDADE" ToRole="TB_ESTATISTICAS" />
+          <NavigationProperty Name="TB_OCORRENCIA" Relationship="Self.FK_CIDADE_OCORRENCIA" FromRole="TB_CIDADE" ToRole="TB_OCORRENCIA" />
+          <NavigationProperty Name="TB_ESTADO" Relationship="Self.FK_ESTADO_CIDADE" FromRole="TB_CIDADE" ToRole="TB_ESTADO" />
+        </EntityType>
+        <EntityType Name="TB_CONFIGURACAO">
+          <Key>
+            <PropertyRef Name="COD_CONFIGURACAO" />
+          </Key>
+          <Property Name="COD_CONFIGURACAO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CIDADE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="COD_USUARIO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TB_USUARIO" Relationship="Self.FK_USUARIO_CONFIGURACAO" FromRole="TB_CONFIGURACAO" ToRole="TB_USUARIO" />
+        </EntityType>
+        <EntityType Name="TB_ESTADO">
+          <Key>
+            <PropertyRef Name="COD_ESTADO" />
+          </Key>
+          <Property Name="COD_ESTADO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ESTADO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TB_CIDADE" Relationship="Self.FK_ESTADO_CIDADE" FromRole="TB_ESTADO" ToRole="TB_CIDADE" />
+        </EntityType>
+        <EntityType Name="TB_ESTATISTICAS">
+          <Key>
+            <PropertyRef Name="COD_ESTATISTICA" />
+          </Key>
+          <Property Name="COD_ESTATISTICA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PERCENTUAL_CRIME" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="QUANTIDADE_CRIME" Type="Int32" />
+          <Property Name="HORARIO_CRIME" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="COD_CIDADE" Type="Int32" Nullable="false" />
+          <Property Name="COD_TIPO_CRIME" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TB_CIDADE" Relationship="Self.FK_CIDADE_ESTATISTICA" FromRole="TB_ESTATISTICAS" ToRole="TB_CIDADE" />
+        </EntityType>
+        <EntityType Name="TB_OCORRENCIA">
+          <Key>
+            <PropertyRef Name="COD_OCORRENCIA" />
+          </Key>
+          <Property Name="COD_OCORRENCIA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DATA" Type="DateTime" Precision="3" />
+          <Property Name="LATITUDE" Type="Int32" />
+          <Property Name="LONGITUDE" Type="Int32" />
+          <Property Name="DESCRICAO_OCORRENCIA" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="HORA" Type="DateTime" Precision="3" />
+          <Property Name="PREJUIZO" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="COD_USUARIO" Type="Int32" Nullable="false" />
+          <Property Name="COD_TIPO_CRIME" Type="Int32" Nullable="false" />
+          <Property Name="COD_CIDADE" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TB_CIDADE" Relationship="Self.FK_CIDADE_OCORRENCIA" FromRole="TB_OCORRENCIA" ToRole="TB_CIDADE" />
+          <NavigationProperty Name="TB_TIPO_OBJETO_OCORRENCIA" Relationship="Self.FK_TB_OCORRENCIA_TB_TIPO_OBJETO_OCORRENCIA" FromRole="TB_OCORRENCIA" ToRole="TB_TIPO_OBJETO_OCORRENCIA" />
+          <NavigationProperty Name="TB_TIPO_CRIME" Relationship="Self.FK_TIPO_CRIME_OCORRENCIA" FromRole="TB_OCORRENCIA" ToRole="TB_TIPO_CRIME" />
+          <NavigationProperty Name="TB_USUARIO" Relationship="Self.FK_USUARIO_OCORRENCIA" FromRole="TB_OCORRENCIA" ToRole="TB_USUARIO" />
+        </EntityType>
+        <EntityType Name="TB_TIPO_CRIME">
+          <Key>
+            <PropertyRef Name="COD_TIPO_CRIME" />
+          </Key>
+          <Property Name="COD_TIPO_CRIME" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TIPO_CRIME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TB_OCORRENCIA" Relationship="Self.FK_TIPO_CRIME_OCORRENCIA" FromRole="TB_TIPO_CRIME" ToRole="TB_OCORRENCIA" />
+        </EntityType>
+        <EntityType Name="TB_TIPO_OBJETO">
+          <Key>
+            <PropertyRef Name="COD_TIPO_OBJETO" />
+          </Key>
+          <Property Name="COD_TIPO_OBJETO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRICAO_OBJETO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TB_TIPO_OBJETO_OCORRENCIA" Relationship="Self.FK_TB_TIPO_OBJETO_TB_TIPO_OBJETO_OCORRENCIA" FromRole="TB_TIPO_OBJETO" ToRole="TB_TIPO_OBJETO_OCORRENCIA" />
+        </EntityType>
+        <EntityType Name="TB_TIPO_OBJETO_OCORRENCIA">
+          <Key>
+            <PropertyRef Name="COD_TIPO_ODJETO_OCORRENCIA" />
+          </Key>
+          <Property Name="COD_TIPO_ODJETO_OCORRENCIA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DECRICAO_TIPO_OBJETO_OCORRENCIA" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="COD_TIPO_OBJETO" Type="Int32" Nullable="false" />
+          <Property Name="COD_OCORRENCIA" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TB_OCORRENCIA" Relationship="Self.FK_TB_OCORRENCIA_TB_TIPO_OBJETO_OCORRENCIA" FromRole="TB_TIPO_OBJETO_OCORRENCIA" ToRole="TB_OCORRENCIA" />
+          <NavigationProperty Name="TB_TIPO_OBJETO" Relationship="Self.FK_TB_TIPO_OBJETO_TB_TIPO_OBJETO_OCORRENCIA" FromRole="TB_TIPO_OBJETO_OCORRENCIA" ToRole="TB_TIPO_OBJETO" />
+        </EntityType>
+        <EntityType Name="TB_USUARIO">
+          <Key>
+            <PropertyRef Name="COD_USUARIO" />
+          </Key>
+          <Property Name="COD_USUARIO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EMAIL" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SENHA" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="CIDADE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TB_CONFIGURACAO" Relationship="Self.FK_USUARIO_CONFIGURACAO" FromRole="TB_USUARIO" ToRole="TB_CONFIGURACAO" />
+          <NavigationProperty Name="TB_OCORRENCIA" Relationship="Self.FK_USUARIO_OCORRENCIA" FromRole="TB_USUARIO" ToRole="TB_OCORRENCIA" />
+        </EntityType>
+        <EntityType Name="FATO_CRIME_LOCALIDADE">
+          <Key>
+            <PropertyRef Name="ID_LOCALIDADE" />
+            <PropertyRef Name="QUANTIDADE" />
+          </Key>
+          <Property Name="ID_LOCALIDADE" Type="Int32" Nullable="false" />
+          <Property Name="QUANTIDADE" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_AUX_LOCALIDADE">
+          <Key>
+            <PropertyRef Name="DATA_CARGA" />
+            <PropertyRef Name="COD_CIDADE" />
+          </Key>
+          <Property Name="DATA_CARGA" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="COD_CIDADE" Type="Int32" Nullable="false" />
+          <Property Name="CIDADE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LATITUDE" Type="Int32" />
+          <Property Name="LONGITUDE" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TB_AUX_OCORRENCIA">
+          <Key>
+            <PropertyRef Name="DATA_CARGA" />
+            <PropertyRef Name="COD_OCORRENCIA" />
+          </Key>
+          <Property Name="DATA_CARGA" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="COD_OCORRENCIA" Type="Int32" Nullable="false" />
+          <Property Name="DATA" Type="DateTime" Precision="3" />
+          <Property Name="LATITUDE" Type="Int32" />
+          <Property Name="LONGITUDE" Type="Int32" />
+          <Property Name="DESCRICAO_OCORRENCIA" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="HORA" Type="DateTime" Precision="3" />
+          <Property Name="PREJUIZO" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="COD_USUARIO" Type="Int32" />
+          <Property Name="COD_TIPO_CRIME" Type="Int32" />
+          <Property Name="COD_CIDADE" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TB_AUX_OCORRENCIA_OBJETOS">
+          <Key>
+            <PropertyRef Name="DATA_CARGA" />
+            <PropertyRef Name="COD_OCORRENCIA_OBJETO" />
+          </Key>
+          <Property Name="DATA_CARGA" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="COD_OCORRENCIA_OBJETO" Type="Int32" Nullable="false" />
+          <Property Name="COD_TIPO_OBJETO" Type="Int32" />
+          <Property Name="DECRICAO_TIPO_OBJETO_OCORRENCIA" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TB_AUX_TIPO_DE_CRIME">
+          <Key>
+            <PropertyRef Name="DATA_CARGA" />
+            <PropertyRef Name="COD_TIPO_CRIME" />
+          </Key>
+          <Property Name="DATA_CARGA" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="COD_TIPO_CRIME" Type="Int32" Nullable="false" />
+          <Property Name="TIPO_CRIME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TB_AUX_TIPO_OBJETOS">
+          <Key>
+            <PropertyRef Name="DATA_CARGA" />
+            <PropertyRef Name="COD_TIPO_OBJETOS" />
+          </Key>
+          <Property Name="DATA_CARGA" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="COD_TIPO_OBJETOS" Type="Int32" Nullable="false" />
+          <Property Name="TIPO_OBJETO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TB_VIOLACAO_LOCALIDADE">
+          <Key>
+            <PropertyRef Name="DATA_CARGA" />
+            <PropertyRef Name="DATA_VIOLACAO" />
+            <PropertyRef Name="DESCRICAO_VIOLACAO" />
+          </Key>
+          <Property Name="DATA_CARGA" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="COD_CIDADE" Type="Int32" />
+          <Property Name="CIDADE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LATITUDE" Type="Int32" />
+          <Property Name="LONGITUDE" Type="Int32" />
+          <Property Name="DATA_VIOLACAO" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DESCRICAO_VIOLACAO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_VIOLACAO_OCORRENCIA">
+          <Key>
+            <PropertyRef Name="DATA_VIOLACAO" />
+            <PropertyRef Name="DESCRICAO_VIOLACAO" />
+          </Key>
+          <Property Name="DATA_CARGA" Type="DateTime" Precision="3" />
+          <Property Name="ID_TEMPO" Type="Int32" />
+          <Property Name="ID_TIPO_CRIME" Type="Int32" />
+          <Property Name="ID_OCALIDADE" Type="Int32" />
+          <Property Name="QUANTIDADE" Type="Int32" />
+          <Property Name="PREJUIZO" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="DESCRICAO_CRIME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DATA_VIOLACAO" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DESCRICAO_VIOLACAO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_VIOLACAO_OCORRENCIA_OBJETOS">
+          <Key>
+            <PropertyRef Name="DATA_CARGA" />
+            <PropertyRef Name="DATA_VIOLACAO" />
+            <PropertyRef Name="DESCRICAO_VIOLACAO" />
+          </Key>
+          <Property Name="DATA_CARGA" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="COD_OCORRENCIA_OBJETO" Type="Int32" />
+          <Property Name="COD_TIPO_OBJETO" Type="Int32" />
+          <Property Name="DECRICAO_TIPO_OBJETO_OCORRENCIA" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DATA_VIOLACAO" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DESCRICAO_VIOLACAO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_VIOLACAO_TIPO_CRIME">
+          <Key>
+            <PropertyRef Name="DATA_CARGA" />
+            <PropertyRef Name="DATA_VIOLACAO" />
+            <PropertyRef Name="DESCRICAO_VIOLACAO" />
+          </Key>
+          <Property Name="DATA_CARGA" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="COD_TIPO_CRIME" Type="Int32" />
+          <Property Name="TIPO_CRIME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DATA_VIOLACAO" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DESCRICAO_VIOLACAO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_VIOLACAO_TIPO_OBJETOS">
+          <Key>
+            <PropertyRef Name="DATA_CARGA" />
+            <PropertyRef Name="DATA_VIOLACAO" />
+            <PropertyRef Name="DESCRICAO_VIOLACAO" />
+          </Key>
+          <Property Name="DATA_CARGA" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="COD_TIPO_OBJETOS" Type="Int32" />
+          <Property Name="TIPO_OBJETO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DATA_VIOLACAO" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DESCRICAO_VIOLACAO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_DIM_OBJETOS_FURTADOS">
+          <End Role="DIM_OBJETOS_FURTADOS" Type="Self.DIM_OBJETOS_FURTADOS" Multiplicity="1" />
+          <End Role="DIM_GRUPO_OBJETOS" Type="Self.DIM_GRUPO_OBJETOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIM_OBJETOS_FURTADOS">
+              <PropertyRef Name="ID_OBJETOS_FURTADOS" />
+            </Principal>
+            <Dependent Role="DIM_GRUPO_OBJETOS">
+              <PropertyRef Name="ID_OBJETOS_FURTADOS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DIM_LOCALIDADE">
+          <End Role="DIM_LOCALIDADE" Type="Self.DIM_LOCALIDADE" Multiplicity="1" />
+          <End Role="FATO_CADASTRO_CRIME" Type="Self.FATO_CADASTRO_CRIME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIM_LOCALIDADE">
+              <PropertyRef Name="ID_OCALIDADE" />
+            </Principal>
+            <Dependent Role="FATO_CADASTRO_CRIME">
+              <PropertyRef Name="ID_OCALIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DIM_TEMPO">
+          <End Role="DIM_TEMPO" Type="Self.DIM_TEMPO" Multiplicity="1" />
+          <End Role="FATO_CADASTRO_CRIME" Type="Self.FATO_CADASTRO_CRIME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIM_TEMPO">
+              <PropertyRef Name="ID_TEMPO" />
+            </Principal>
+            <Dependent Role="FATO_CADASTRO_CRIME">
+              <PropertyRef Name="ID_TEMPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DIM_TIPO_CRIME">
+          <End Role="DIM_TIPO_CRIME" Type="Self.DIM_TIPO_CRIME" Multiplicity="1" />
+          <End Role="FATO_CADASTRO_CRIME" Type="Self.FATO_CADASTRO_CRIME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIM_TIPO_CRIME">
+              <PropertyRef Name="ID_TIPO_CRIME" />
+            </Principal>
+            <Dependent Role="FATO_CADASTRO_CRIME">
+              <PropertyRef Name="ID_TIPO_CRIME" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CIDADE_ESTATISTICA">
+          <End Role="TB_CIDADE" Type="Self.TB_CIDADE" Multiplicity="1" />
+          <End Role="TB_ESTATISTICAS" Type="Self.TB_ESTATISTICAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_CIDADE">
+              <PropertyRef Name="COD_CIDADE" />
+            </Principal>
+            <Dependent Role="TB_ESTATISTICAS">
+              <PropertyRef Name="COD_CIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CIDADE_OCORRENCIA">
+          <End Role="TB_CIDADE" Type="Self.TB_CIDADE" Multiplicity="1" />
+          <End Role="TB_OCORRENCIA" Type="Self.TB_OCORRENCIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_CIDADE">
+              <PropertyRef Name="COD_CIDADE" />
+            </Principal>
+            <Dependent Role="TB_OCORRENCIA">
+              <PropertyRef Name="COD_CIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ESTADO_CIDADE">
+          <End Role="TB_ESTADO" Type="Self.TB_ESTADO" Multiplicity="1" />
+          <End Role="TB_CIDADE" Type="Self.TB_CIDADE" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="TB_ESTADO">
+              <PropertyRef Name="COD_ESTADO" />
+            </Principal>
+            <Dependent Role="TB_CIDADE">
+              <PropertyRef Name="COD_CIDADE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_CONFIGURACAO">
+          <End Role="TB_USUARIO" Type="Self.TB_USUARIO" Multiplicity="1" />
+          <End Role="TB_CONFIGURACAO" Type="Self.TB_CONFIGURACAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_USUARIO">
+              <PropertyRef Name="COD_USUARIO" />
+            </Principal>
+            <Dependent Role="TB_CONFIGURACAO">
+              <PropertyRef Name="COD_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_OCORRENCIA_TB_TIPO_OBJETO_OCORRENCIA">
+          <End Role="TB_OCORRENCIA" Type="Self.TB_OCORRENCIA" Multiplicity="1" />
+          <End Role="TB_TIPO_OBJETO_OCORRENCIA" Type="Self.TB_TIPO_OBJETO_OCORRENCIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_OCORRENCIA">
+              <PropertyRef Name="COD_OCORRENCIA" />
+            </Principal>
+            <Dependent Role="TB_TIPO_OBJETO_OCORRENCIA">
+              <PropertyRef Name="COD_OCORRENCIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TIPO_CRIME_OCORRENCIA">
+          <End Role="TB_TIPO_CRIME" Type="Self.TB_TIPO_CRIME" Multiplicity="1" />
+          <End Role="TB_OCORRENCIA" Type="Self.TB_OCORRENCIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TIPO_CRIME">
+              <PropertyRef Name="COD_TIPO_CRIME" />
+            </Principal>
+            <Dependent Role="TB_OCORRENCIA">
+              <PropertyRef Name="COD_TIPO_CRIME" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_OCORRENCIA">
+          <End Role="TB_USUARIO" Type="Self.TB_USUARIO" Multiplicity="1" />
+          <End Role="TB_OCORRENCIA" Type="Self.TB_OCORRENCIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_USUARIO">
+              <PropertyRef Name="COD_USUARIO" />
+            </Principal>
+            <Dependent Role="TB_OCORRENCIA">
+              <PropertyRef Name="COD_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_TIPO_OBJETO_TB_TIPO_OBJETO_OCORRENCIA">
+          <End Role="TB_TIPO_OBJETO" Type="Self.TB_TIPO_OBJETO" Multiplicity="1" />
+          <End Role="TB_TIPO_OBJETO_OCORRENCIA" Type="Self.TB_TIPO_OBJETO_OCORRENCIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_TIPO_OBJETO">
+              <PropertyRef Name="COD_TIPO_OBJETO" />
+            </Principal>
+            <Dependent Role="TB_TIPO_OBJETO_OCORRENCIA">
+              <PropertyRef Name="COD_TIPO_OBJETO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PreCrimeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DIM_GRUPO_OBJETOS" EntityType="Self.DIM_GRUPO_OBJETOS" />
+          <EntitySet Name="DIM_LOCALIDADE" EntityType="Self.DIM_LOCALIDADE" />
+          <EntitySet Name="DIM_OBJETOS_FURTADOS" EntityType="Self.DIM_OBJETOS_FURTADOS" />
+          <EntitySet Name="DIM_TEMPO" EntityType="Self.DIM_TEMPO" />
+          <EntitySet Name="DIM_TIPO_CRIME" EntityType="Self.DIM_TIPO_CRIME" />
+          <EntitySet Name="FATO_CADASTRO_CRIME" EntityType="Self.FATO_CADASTRO_CRIME" />
+          <EntitySet Name="TB_CIDADE" EntityType="Self.TB_CIDADE" />
+          <EntitySet Name="TB_CONFIGURACAO" EntityType="Self.TB_CONFIGURACAO" />
+          <EntitySet Name="TB_ESTADO" EntityType="Self.TB_ESTADO" />
+          <EntitySet Name="TB_ESTATISTICAS" EntityType="Self.TB_ESTATISTICAS" />
+          <EntitySet Name="TB_OCORRENCIA" EntityType="Self.TB_OCORRENCIA" />
+          <EntitySet Name="TB_TIPO_CRIME" EntityType="Self.TB_TIPO_CRIME" />
+          <EntitySet Name="TB_TIPO_OBJETO" EntityType="Self.TB_TIPO_OBJETO" />
+          <EntitySet Name="TB_TIPO_OBJETO_OCORRENCIA" EntityType="Self.TB_TIPO_OBJETO_OCORRENCIA" />
+          <EntitySet Name="TB_USUARIO" EntityType="Self.TB_USUARIO" />
+          <EntitySet Name="FATO_CRIME_LOCALIDADE" EntityType="Self.FATO_CRIME_LOCALIDADE" />
+          <EntitySet Name="TB_AUX_LOCALIDADE" EntityType="Self.TB_AUX_LOCALIDADE" />
+          <EntitySet Name="TB_AUX_OCORRENCIA" EntityType="Self.TB_AUX_OCORRENCIA" />
+          <EntitySet Name="TB_AUX_OCORRENCIA_OBJETOS" EntityType="Self.TB_AUX_OCORRENCIA_OBJETOS" />
+          <EntitySet Name="TB_AUX_TIPO_DE_CRIME" EntityType="Self.TB_AUX_TIPO_DE_CRIME" />
+          <EntitySet Name="TB_AUX_TIPO_OBJETOS" EntityType="Self.TB_AUX_TIPO_OBJETOS" />
+          <EntitySet Name="TB_VIOLACAO_LOCALIDADE" EntityType="Self.TB_VIOLACAO_LOCALIDADE" />
+          <EntitySet Name="TB_VIOLACAO_OCORRENCIA" EntityType="Self.TB_VIOLACAO_OCORRENCIA" />
+          <EntitySet Name="TB_VIOLACAO_OCORRENCIA_OBJETOS" EntityType="Self.TB_VIOLACAO_OCORRENCIA_OBJETOS" />
+          <EntitySet Name="TB_VIOLACAO_TIPO_CRIME" EntityType="Self.TB_VIOLACAO_TIPO_CRIME" />
+          <EntitySet Name="TB_VIOLACAO_TIPO_OBJETOS" EntityType="Self.TB_VIOLACAO_TIPO_OBJETOS" />
+          <AssociationSet Name="FK_DIM_OBJETOS_FURTADOS" Association="Self.FK_DIM_OBJETOS_FURTADOS">
+            <End Role="DIM_OBJETOS_FURTADOS" EntitySet="DIM_OBJETOS_FURTADOS" />
+            <End Role="DIM_GRUPO_OBJETOS" EntitySet="DIM_GRUPO_OBJETOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DIM_LOCALIDADE" Association="Self.FK_DIM_LOCALIDADE">
+            <End Role="DIM_LOCALIDADE" EntitySet="DIM_LOCALIDADE" />
+            <End Role="FATO_CADASTRO_CRIME" EntitySet="FATO_CADASTRO_CRIME" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DIM_TEMPO" Association="Self.FK_DIM_TEMPO">
+            <End Role="DIM_TEMPO" EntitySet="DIM_TEMPO" />
+            <End Role="FATO_CADASTRO_CRIME" EntitySet="FATO_CADASTRO_CRIME" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DIM_TIPO_CRIME" Association="Self.FK_DIM_TIPO_CRIME">
+            <End Role="DIM_TIPO_CRIME" EntitySet="DIM_TIPO_CRIME" />
+            <End Role="FATO_CADASTRO_CRIME" EntitySet="FATO_CADASTRO_CRIME" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CIDADE_ESTATISTICA" Association="Self.FK_CIDADE_ESTATISTICA">
+            <End Role="TB_CIDADE" EntitySet="TB_CIDADE" />
+            <End Role="TB_ESTATISTICAS" EntitySet="TB_ESTATISTICAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CIDADE_OCORRENCIA" Association="Self.FK_CIDADE_OCORRENCIA">
+            <End Role="TB_CIDADE" EntitySet="TB_CIDADE" />
+            <End Role="TB_OCORRENCIA" EntitySet="TB_OCORRENCIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ESTADO_CIDADE" Association="Self.FK_ESTADO_CIDADE">
+            <End Role="TB_ESTADO" EntitySet="TB_ESTADO" />
+            <End Role="TB_CIDADE" EntitySet="TB_CIDADE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_CONFIGURACAO" Association="Self.FK_USUARIO_CONFIGURACAO">
+            <End Role="TB_USUARIO" EntitySet="TB_USUARIO" />
+            <End Role="TB_CONFIGURACAO" EntitySet="TB_CONFIGURACAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_OCORRENCIA_TB_TIPO_OBJETO_OCORRENCIA" Association="Self.FK_TB_OCORRENCIA_TB_TIPO_OBJETO_OCORRENCIA">
+            <End Role="TB_OCORRENCIA" EntitySet="TB_OCORRENCIA" />
+            <End Role="TB_TIPO_OBJETO_OCORRENCIA" EntitySet="TB_TIPO_OBJETO_OCORRENCIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TIPO_CRIME_OCORRENCIA" Association="Self.FK_TIPO_CRIME_OCORRENCIA">
+            <End Role="TB_TIPO_CRIME" EntitySet="TB_TIPO_CRIME" />
+            <End Role="TB_OCORRENCIA" EntitySet="TB_OCORRENCIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_OCORRENCIA" Association="Self.FK_USUARIO_OCORRENCIA">
+            <End Role="TB_USUARIO" EntitySet="TB_USUARIO" />
+            <End Role="TB_OCORRENCIA" EntitySet="TB_OCORRENCIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_TIPO_OBJETO_TB_TIPO_OBJETO_OCORRENCIA" Association="Self.FK_TB_TIPO_OBJETO_TB_TIPO_OBJETO_OCORRENCIA">
+            <End Role="TB_TIPO_OBJETO" EntitySet="TB_TIPO_OBJETO" />
+            <End Role="TB_TIPO_OBJETO_OCORRENCIA" EntitySet="TB_TIPO_OBJETO_OCORRENCIA" />
+          </AssociationSet>
+          <FunctionImport Name="INSERT_TB_OCORRENCIA">
+            <Parameter Name="DT_INICIAL" Mode="In" Type="DateTime" />
+            <Parameter Name="DT_FINAL" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="PRO_AGREGADO" />
+          <FunctionImport Name="PROCEDURE_DIM_LOCALIDADE">
+            <Parameter Name="DATACARGA" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="PROCEDURE_DIM_OBJETOS_FURTADOS">
+            <Parameter Name="DATACARGA" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="PROCEDURE_DIM_TIPO_CRIME">
+            <Parameter Name="DATACARGA" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="PROCEDURE_GRUPO_OBJETOS">
+            <Parameter Name="DATACARGA" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DIM_TEMPO">
+            <Parameter Name="DATAINICIO" Mode="In" Type="DateTime" />
+            <Parameter Name="DATAFIM" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SP_FATO_CADASTRAR">
+            <Parameter Name="DATACARGA" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SP_OLTP_LOCALIDADE">
+            <Parameter Name="DATACARGA" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SP_OLTP_OCORRENCIA">
+            <Parameter Name="DATACARGA" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SP_OLTP_OCORRENCIA_TIPO_OBJETO">
+            <Parameter Name="DATACARGA" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SP_OLTP_TIPO_CRIME">
+            <Parameter Name="DATACARGA" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SP_OLTP_TIPO_OBJETO">
+            <Parameter Name="DATACARGA" Mode="In" Type="DateTime" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PreCrimeModelStoreContainer" CdmEntityContainer="PreCrimeEntities">
+          <EntitySetMapping Name="DIM_GRUPO_OBJETOS">
+            <EntityTypeMapping TypeName="PreCrimeModel.DIM_GRUPO_OBJETOS">
+              <MappingFragment StoreEntitySet="DIM_GRUPO_OBJETOS">
+                <ScalarProperty Name="ID_GRUPO_OBJETOS" ColumnName="ID_GRUPO_OBJETOS" />
+                <ScalarProperty Name="COD_GRUPO_OBJETOS" ColumnName="COD_GRUPO_OBJETOS" />
+                <ScalarProperty Name="DECRICAO_GRUPO_OBJETO" ColumnName="DECRICAO_GRUPO_OBJETO" />
+                <ScalarProperty Name="ID_OBJETOS_FURTADOS" ColumnName="ID_OBJETOS_FURTADOS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DIM_LOCALIDADE">
+            <EntityTypeMapping TypeName="PreCrimeModel.DIM_LOCALIDADE">
+              <MappingFragment StoreEntitySet="DIM_LOCALIDADE">
+                <ScalarProperty Name="ID_OCALIDADE" ColumnName="ID_OCALIDADE" />
+                <ScalarProperty Name="COD_LOCALIDADE" ColumnName="COD_LOCALIDADE" />
+                <ScalarProperty Name="CIDADE" ColumnName="CIDADE" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="LATITUDE" ColumnName="LATITUDE" />
+                <ScalarProperty Name="LONGITUDE" ColumnName="LONGITUDE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DIM_OBJETOS_FURTADOS">
+            <EntityTypeMapping TypeName="PreCrimeModel.DIM_OBJETOS_FURTADOS">
+              <MappingFragment StoreEntitySet="DIM_OBJETOS_FURTADOS">
+                <ScalarProperty Name="ID_OBJETOS_FURTADOS" ColumnName="ID_OBJETOS_FURTADOS" />
+                <ScalarProperty Name="COD_OBJETOS_FURTADOS" ColumnName="COD_OBJETOS_FURTADOS" />
+                <ScalarProperty Name="TIPO_OBJETO" ColumnName="TIPO_OBJETO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DIM_TEMPO">
+            <EntityTypeMapping TypeName="PreCrimeModel.DIM_TEMPO">
+              <MappingFragment StoreEntitySet="DIM_TEMPO">
+                <ScalarProperty Name="ID_TEMPO" ColumnName="ID_TEMPO" />
+                <ScalarProperty Name="NIVEL" ColumnName="NIVEL" />
+                <ScalarProperty Name="DATA" ColumnName="DATA" />
+                <ScalarProperty Name="DIA" ColumnName="DIA" />
+                <ScalarProperty Name="DIADASEMANA" ColumnName="DIADASEMANA" />
+                <ScalarProperty Name="DIAUTIL" ColumnName="DIAUTIL" />
+                <ScalarProperty Name="FERIADO" ColumnName="FERIADO" />
+                <ScalarProperty Name="TIPOFERIADO" ColumnName="TIPOFERIADO" />
+                <ScalarProperty Name="FIMSEMANA" ColumnName="FIMSEMANA" />
+                <ScalarProperty Name="QUINZENA" ColumnName="QUINZENA" />
+                <ScalarProperty Name="MES" ColumnName="MES" />
+                <ScalarProperty Name="NOMEMES" ColumnName="NOMEMES" />
+                <ScalarProperty Name="FIMMES" ColumnName="FIMMES" />
+                <ScalarProperty Name="TRIMESTRE" ColumnName="TRIMESTRE" />
+                <ScalarProperty Name="NOMETRIMESTRE" ColumnName="NOMETRIMESTRE" />
+                <ScalarProperty Name="SEMESTRE" ColumnName="SEMESTRE" />
+                <ScalarProperty Name="NOMESEMESTRE" ColumnName="NOMESEMESTRE" />
+                <ScalarProperty Name="ANO" ColumnName="ANO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DIM_TIPO_CRIME">
+            <EntityTypeMapping TypeName="PreCrimeModel.DIM_TIPO_CRIME">
+              <MappingFragment StoreEntitySet="DIM_TIPO_CRIME">
+                <ScalarProperty Name="ID_TIPO_CRIME" ColumnName="ID_TIPO_CRIME" />
+                <ScalarProperty Name="COD_TIPO_CRIME" ColumnName="COD_TIPO_CRIME" />
+                <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FATO_CADASTRO_CRIME">
+            <EntityTypeMapping TypeName="PreCrimeModel.FATO_CADASTRO_CRIME">
+              <MappingFragment StoreEntitySet="FATO_CADASTRO_CRIME">
+                <ScalarProperty Name="ID_CADASTRO_CRIME" ColumnName="ID_CADASTRO_CRIME" />
+                <ScalarProperty Name="ID_TEMPO" ColumnName="ID_TEMPO" />
+                <ScalarProperty Name="ID_TIPO_CRIME" ColumnName="ID_TIPO_CRIME" />
+                <ScalarProperty Name="ID_OCALIDADE" ColumnName="ID_OCALIDADE" />
+                <ScalarProperty Name="QUANTIDADE" ColumnName="QUANTIDADE" />
+                <ScalarProperty Name="PREJUIZO" ColumnName="PREJUIZO" />
+                <ScalarProperty Name="DESCRICAO_CRIME" ColumnName="DESCRICAO_CRIME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_CIDADE">
+            <EntityTypeMapping TypeName="PreCrimeModel.TB_CIDADE">
+              <MappingFragment StoreEntitySet="TB_CIDADE">
+                <ScalarProperty Name="COD_CIDADE" ColumnName="COD_CIDADE" />
+                <ScalarProperty Name="CIDADE" ColumnName="CIDADE" />
+                <ScalarProperty Name="LATITUDE" ColumnName="LATITUDE" />
+                <ScalarProperty Name="LONGITUDE" ColumnName="LONGITUDE" />
+                <ScalarProperty Name="COD_ESTADO" ColumnName="COD_ESTADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_CONFIGURACAO">
+            <EntityTypeMapping TypeName="PreCrimeModel.TB_CONFIGURACAO">
+              <MappingFragment StoreEntitySet="TB_CONFIGURACAO">
+                <ScalarProperty Name="COD_CONFIGURACAO" ColumnName="COD_CONFIGURACAO" />
+                <ScalarProperty Name="CIDADE" ColumnName="CIDADE" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="COD_USUARIO" ColumnName="COD_USUARIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_ESTADO">
+            <EntityTypeMapping TypeName="PreCrimeModel.TB_ESTADO">
+              <MappingFragment StoreEntitySet="TB_ESTADO">
+                <ScalarProperty Name="COD_ESTADO" ColumnName="COD_ESTADO" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_ESTATISTICAS">
+            <EntityTypeMapping TypeName="PreCrimeModel.TB_ESTATISTICAS">
+              <MappingFragment StoreEntitySet="TB_ESTATISTICAS">
+                <ScalarProperty Name="COD_ESTATISTICA" ColumnName="COD_ESTATISTICA" />
+                <ScalarProperty Name="PERCENTUAL_CRIME" ColumnName="PERCENTUAL_CRIME" />
+                <ScalarProperty Name="QUANTIDADE_CRIME" ColumnName="QUANTIDADE_CRIME" />
+                <ScalarProperty Name="HORARIO_CRIME" ColumnName="HORARIO_CRIME" />
+                <ScalarProperty Name="COD_CIDADE" ColumnName="COD_CIDADE" />
+                <ScalarProperty Name="COD_TIPO_CRIME" ColumnName="COD_TIPO_CRIME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_OCORRENCIA">
+            <EntityTypeMapping TypeName="PreCrimeModel.TB_OCORRENCIA">
+              <MappingFragment StoreEntitySet="TB_OCORRENCIA">
+                <ScalarProperty Name="COD_OCORRENCIA" ColumnName="COD_OCORRENCIA" />
+                <ScalarProperty Name="DATA" ColumnName="DATA" />
+                <ScalarProperty Name="LATITUDE" ColumnName="LATITUDE" />
+                <ScalarProperty Name="LONGITUDE" ColumnName="LONGITUDE" />
+                <ScalarProperty Name="DESCRICAO_OCORRENCIA" ColumnName="DESCRICAO_OCORRENCIA" />
+                <ScalarProperty Name="HORA" ColumnName="HORA" />
+                <ScalarProperty Name="PREJUIZO" ColumnName="PREJUIZO" />
+                <ScalarProperty Name="COD_USUARIO" ColumnName="COD_USUARIO" />
+                <ScalarProperty Name="COD_TIPO_CRIME" ColumnName="COD_TIPO_CRIME" />
+                <ScalarProperty Name="COD_CIDADE" ColumnName="COD_CIDADE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_TIPO_CRIME">
+            <EntityTypeMapping TypeName="PreCrimeModel.TB_TIPO_CRIME">
+              <MappingFragment StoreEntitySet="TB_TIPO_CRIME">
+                <ScalarProperty Name="COD_TIPO_CRIME" ColumnName="COD_TIPO_CRIME" />
+                <ScalarProperty Name="TIPO_CRIME" ColumnName="TIPO_CRIME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_TIPO_OBJETO">
+            <EntityTypeMapping TypeName="PreCrimeModel.TB_TIPO_OBJETO">
+              <MappingFragment StoreEntitySet="TB_TIPO_OBJETO">
+                <ScalarProperty Name="COD_TIPO_OBJETO" ColumnName="COD_TIPO_OBJETO" />
+                <ScalarProperty Name="DESCRICAO_OBJETO" ColumnName="DESCRICAO_OBJETO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_TIPO_OBJETO_OCORRENCIA">
+            <EntityTypeMapping TypeName="PreCrimeModel.TB_TIPO_OBJETO_OCORRENCIA">
+              <MappingFragment StoreEntitySet="TB_TIPO_OBJETO_OCORRENCIA">
+                <ScalarProperty Name="COD_TIPO_ODJETO_OCORRENCIA" ColumnName="COD_TIPO_ODJETO_OCORRENCIA" />
+                <ScalarProperty Name="DECRICAO_TIPO_OBJETO_OCORRENCIA" ColumnName="DECRICAO_TIPO_OBJETO_OCORRENCIA" />
+                <ScalarProperty Name="COD_TIPO_OBJETO" ColumnName="COD_TIPO_OBJETO" />
+                <ScalarProperty Name="COD_OCORRENCIA" ColumnName="COD_OCORRENCIA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_USUARIO">
+            <EntityTypeMapping TypeName="PreCrimeModel.TB_USUARIO">
+              <MappingFragment StoreEntitySet="TB_USUARIO">
+                <ScalarProperty Name="COD_USUARIO" ColumnName="COD_USUARIO" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="SENHA" ColumnName="SENHA" />
+                <ScalarProperty Name="CIDADE" ColumnName="CIDADE" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FATO_CRIME_LOCALIDADE">
+            <EntityTypeMapping TypeName="PreCrimeModel.FATO_CRIME_LOCALIDADE">
+              <MappingFragment StoreEntitySet="FATO_CRIME_LOCALIDADE">
+                <ScalarProperty Name="ID_LOCALIDADE" ColumnName="ID_LOCALIDADE" />
+                <ScalarProperty Name="QUANTIDADE" ColumnName="QUANTIDADE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_AUX_LOCALIDADE">
+            <EntityTypeMapping TypeName="PreCrimeModel.TB_AUX_LOCALIDADE">
+              <MappingFragment StoreEntitySet="TB_AUX_LOCALIDADE">
+                <ScalarProperty Name="DATA_CARGA" ColumnName="DATA_CARGA" />
+                <ScalarProperty Name="COD_CIDADE" ColumnName="COD_CIDADE" />
+                <ScalarProperty Name="CIDADE" ColumnName="CIDADE" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="LATITUDE" ColumnName="LATITUDE" />
+                <ScalarProperty Name="LONGITUDE" ColumnName="LONGITUDE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_AUX_OCORRENCIA">
+            <EntityTypeMapping TypeName="PreCrimeModel.TB_AUX_OCORRENCIA">
+              <MappingFragment StoreEntitySet="TB_AUX_OCORRENCIA">
+                <ScalarProperty Name="DATA_CARGA" ColumnName="DATA_CARGA" />
+                <ScalarProperty Name="COD_OCORRENCIA" ColumnName="COD_OCORRENCIA" />
+                <ScalarProperty Name="DATA" ColumnName="DATA" />
+                <ScalarProperty Name="LATITUDE" ColumnName="LATITUDE" />
+                <ScalarProperty Name="LONGITUDE" ColumnName="LONGITUDE" />
+                <ScalarProperty Name="DESCRICAO_OCORRENCIA" ColumnName="DESCRICAO_OCORRENCIA" />
+                <ScalarProperty Name="HORA" ColumnName="HORA" />
+                <ScalarProperty Name="PREJUIZO" ColumnName="PREJUIZO" />
+                <ScalarProperty Name="COD_USUARIO" ColumnName="COD_USUARIO" />
+                <ScalarProperty Name="COD_TIPO_CRIME" ColumnName="COD_TIPO_CRIME" />
+                <ScalarProperty Name="COD_CIDADE" ColumnName="COD_CIDADE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_AUX_OCORRENCIA_OBJETOS">
+            <EntityTypeMapping TypeName="PreCrimeModel.TB_AUX_OCORRENCIA_OBJETOS">
+              <MappingFragment StoreEntitySet="TB_AUX_OCORRENCIA_OBJETOS">
+                <ScalarProperty Name="DATA_CARGA" ColumnName="DATA_CARGA" />
+                <ScalarProperty Name="COD_OCORRENCIA_OBJETO" ColumnName="COD_OCORRENCIA_OBJETO" />
+                <ScalarProperty Name="COD_TIPO_OBJETO" ColumnName="COD_TIPO_OBJETO" />
+                <ScalarProperty Name="DECRICAO_TIPO_OBJETO_OCORRENCIA" ColumnName="DECRICAO_TIPO_OBJETO_OCORRENCIA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_AUX_TIPO_DE_CRIME">
+            <EntityTypeMapping TypeName="PreCrimeModel.TB_AUX_TIPO_DE_CRIME">
+              <MappingFragment StoreEntitySet="TB_AUX_TIPO_DE_CRIME">
+                <ScalarProperty Name="DATA_CARGA" ColumnName="DATA_CARGA" />
+                <ScalarProperty Name="COD_TIPO_CRIME" ColumnName="COD_TIPO_CRIME" />
+                <ScalarProperty Name="TIPO_CRIME" ColumnName="TIPO_CRIME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_AUX_TIPO_OBJETOS">
+            <EntityTypeMapping TypeName="PreCrimeModel.TB_AUX_TIPO_OBJETOS">
+              <MappingFragment StoreEntitySet="TB_AUX_TIPO_OBJETOS">
+                <ScalarProperty Name="DATA_CARGA" ColumnName="DATA_CARGA" />
+                <ScalarProperty Name="COD_TIPO_OBJETOS" ColumnName="COD_TIPO_OBJETOS" />
+                <ScalarProperty Name="TIPO_OBJETO" ColumnName="TIPO_OBJETO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_VIOLACAO_LOCALIDADE">
+            <EntityTypeMapping TypeName="PreCrimeModel.TB_VIOLACAO_LOCALIDADE">
+              <MappingFragment StoreEntitySet="TB_VIOLACAO_LOCALIDADE">
+                <ScalarProperty Name="DATA_CARGA" ColumnName="DATA_CARGA" />
+                <ScalarProperty Name="COD_CIDADE" ColumnName="COD_CIDADE" />
+                <ScalarProperty Name="CIDADE" ColumnName="CIDADE" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="LATITUDE" ColumnName="LATITUDE" />
+                <ScalarProperty Name="LONGITUDE" ColumnName="LONGITUDE" />
+                <ScalarProperty Name="DATA_VIOLACAO" ColumnName="DATA_VIOLACAO" />
+                <ScalarProperty Name="DESCRICAO_VIOLACAO" ColumnName="DESCRICAO_VIOLACAO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_VIOLACAO_OCORRENCIA">
+            <EntityTypeMapping TypeName="PreCrimeModel.TB_VIOLACAO_OCORRENCIA">
+              <MappingFragment StoreEntitySet="TB_VIOLACAO_OCORRENCIA">
+                <ScalarProperty Name="DATA_CARGA" ColumnName="DATA_CARGA" />
+                <ScalarProperty Name="ID_TEMPO" ColumnName="ID_TEMPO" />
+                <ScalarProperty Name="ID_TIPO_CRIME" ColumnName="ID_TIPO_CRIME" />
+                <ScalarProperty Name="ID_OCALIDADE" ColumnName="ID_OCALIDADE" />
+                <ScalarProperty Name="QUANTIDADE" ColumnName="QUANTIDADE" />
+                <ScalarProperty Name="PREJUIZO" ColumnName="PREJUIZO" />
+                <ScalarProperty Name="DESCRICAO_CRIME" ColumnName="DESCRICAO_CRIME" />
+                <ScalarProperty Name="DATA_VIOLACAO" ColumnName="DATA_VIOLACAO" />
+                <ScalarProperty Name="DESCRICAO_VIOLACAO" ColumnName="DESCRICAO_VIOLACAO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_VIOLACAO_OCORRENCIA_OBJETOS">
+            <EntityTypeMapping TypeName="PreCrimeModel.TB_VIOLACAO_OCORRENCIA_OBJETOS">
+              <MappingFragment StoreEntitySet="TB_VIOLACAO_OCORRENCIA_OBJETOS">
+                <ScalarProperty Name="DATA_CARGA" ColumnName="DATA_CARGA" />
+                <ScalarProperty Name="COD_OCORRENCIA_OBJETO" ColumnName="COD_OCORRENCIA_OBJETO" />
+                <ScalarProperty Name="COD_TIPO_OBJETO" ColumnName="COD_TIPO_OBJETO" />
+                <ScalarProperty Name="DECRICAO_TIPO_OBJETO_OCORRENCIA" ColumnName="DECRICAO_TIPO_OBJETO_OCORRENCIA" />
+                <ScalarProperty Name="DATA_VIOLACAO" ColumnName="DATA_VIOLACAO" />
+                <ScalarProperty Name="DESCRICAO_VIOLACAO" ColumnName="DESCRICAO_VIOLACAO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_VIOLACAO_TIPO_CRIME">
+            <EntityTypeMapping TypeName="PreCrimeModel.TB_VIOLACAO_TIPO_CRIME">
+              <MappingFragment StoreEntitySet="TB_VIOLACAO_TIPO_CRIME">
+                <ScalarProperty Name="DATA_CARGA" ColumnName="DATA_CARGA" />
+                <ScalarProperty Name="COD_TIPO_CRIME" ColumnName="COD_TIPO_CRIME" />
+                <ScalarProperty Name="TIPO_CRIME" ColumnName="TIPO_CRIME" />
+                <ScalarProperty Name="DATA_VIOLACAO" ColumnName="DATA_VIOLACAO" />
+                <ScalarProperty Name="DESCRICAO_VIOLACAO" ColumnName="DESCRICAO_VIOLACAO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_VIOLACAO_TIPO_OBJETOS">
+            <EntityTypeMapping TypeName="PreCrimeModel.TB_VIOLACAO_TIPO_OBJETOS">
+              <MappingFragment StoreEntitySet="TB_VIOLACAO_TIPO_OBJETOS">
+                <ScalarProperty Name="DATA_CARGA" ColumnName="DATA_CARGA" />
+                <ScalarProperty Name="COD_TIPO_OBJETOS" ColumnName="COD_TIPO_OBJETOS" />
+                <ScalarProperty Name="TIPO_OBJETO" ColumnName="TIPO_OBJETO" />
+                <ScalarProperty Name="DATA_VIOLACAO" ColumnName="DATA_VIOLACAO" />
+                <ScalarProperty Name="DESCRICAO_VIOLACAO" ColumnName="DESCRICAO_VIOLACAO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="INSERT_TB_OCORRENCIA" FunctionName="PreCrimeModel.Store.INSERT_TB_OCORRENCIA" />
+          <FunctionImportMapping FunctionImportName="PRO_AGREGADO" FunctionName="PreCrimeModel.Store.PRO_AGREGADO" />
+          <FunctionImportMapping FunctionImportName="PROCEDURE_DIM_LOCALIDADE" FunctionName="PreCrimeModel.Store.PROCEDURE_DIM_LOCALIDADE" />
+          <FunctionImportMapping FunctionImportName="PROCEDURE_DIM_OBJETOS_FURTADOS" FunctionName="PreCrimeModel.Store.PROCEDURE_DIM_OBJETOS_FURTADOS" />
+          <FunctionImportMapping FunctionImportName="PROCEDURE_DIM_TIPO_CRIME" FunctionName="PreCrimeModel.Store.PROCEDURE_DIM_TIPO_CRIME" />
+          <FunctionImportMapping FunctionImportName="PROCEDURE_GRUPO_OBJETOS" FunctionName="PreCrimeModel.Store.PROCEDURE_GRUPO_OBJETOS" />
+          <FunctionImportMapping FunctionImportName="SP_DIM_TEMPO" FunctionName="PreCrimeModel.Store.SP_DIM_TEMPO" />
+          <FunctionImportMapping FunctionImportName="SP_FATO_CADASTRAR" FunctionName="PreCrimeModel.Store.SP_FATO_CADASTRAR" />
+          <FunctionImportMapping FunctionImportName="SP_OLTP_LOCALIDADE" FunctionName="PreCrimeModel.Store.SP_OLTP_LOCALIDADE" />
+          <FunctionImportMapping FunctionImportName="SP_OLTP_OCORRENCIA" FunctionName="PreCrimeModel.Store.SP_OLTP_OCORRENCIA" />
+          <FunctionImportMapping FunctionImportName="SP_OLTP_OCORRENCIA_TIPO_OBJETO" FunctionName="PreCrimeModel.Store.SP_OLTP_OCORRENCIA_TIPO_OBJETO" />
+          <FunctionImportMapping FunctionImportName="SP_OLTP_TIPO_CRIME" FunctionName="PreCrimeModel.Store.SP_OLTP_TIPO_CRIME" />
+          <FunctionImportMapping FunctionImportName="SP_OLTP_TIPO_OBJETO" FunctionName="PreCrimeModel.Store.SP_OLTP_TIPO_OBJETO" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

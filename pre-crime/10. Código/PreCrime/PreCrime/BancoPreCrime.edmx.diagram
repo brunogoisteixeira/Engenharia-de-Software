@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="33e63f05a0d64a738e03eda3fbb45c0e" Name="Diagram1">
+        <EntityTypeShape EntityType="PreCrimeModel.DIM_GRUPO_OBJETOS" Width="1.5" PointX="13" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PreCrimeModel.DIM_LOCALIDADE" Width="1.5" PointX="5.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PreCrimeModel.DIM_OBJETOS_FURTADOS" Width="1.5" PointX="10.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PreCrimeModel.DIM_TEMPO" Width="1.5" PointX="5.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PreCrimeModel.DIM_TIPO_CRIME" Width="1.5" PointX="5.75" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PreCrimeModel.FATO_CADASTRO_CRIME" Width="1.5" PointX="8" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PreCrimeModel.TB_CIDADE" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PreCrimeModel.TB_CONFIGURACAO" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PreCrimeModel.TB_ESTADO" Width="1.5" PointX="1.5" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PreCrimeModel.TB_ESTATISTICAS" Width="1.5" PointX="6" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PreCrimeModel.TB_OCORRENCIA" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PreCrimeModel.TB_TIPO_CRIME" Width="1.5" PointX="3.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="PreCrimeModel.TB_TIPO_OBJETO" Width="1.5" PointX="6" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PreCrimeModel.TB_TIPO_OBJETO_OCORRENCIA" Width="1.5" PointX="8.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PreCrimeModel.TB_USUARIO" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PreCrimeModel.FATO_CRIME_LOCALIDADE" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PreCrimeModel.TB_AUX_LOCALIDADE" Width="1.5" PointX="2.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PreCrimeModel.TB_AUX_OCORRENCIA" Width="1.5" PointX="10.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PreCrimeModel.TB_AUX_OCORRENCIA_OBJETOS" Width="1.5" PointX="10.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PreCrimeModel.TB_AUX_TIPO_DE_CRIME" Width="1.5" PointX="10.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PreCrimeModel.TB_AUX_TIPO_OBJETOS" Width="1.5" PointX="0.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PreCrimeModel.TB_VIOLACAO_LOCALIDADE" Width="1.5" PointX="2.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PreCrimeModel.TB_VIOLACAO_OCORRENCIA" Width="1.5" PointX="7.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PreCrimeModel.TB_VIOLACAO_OCORRENCIA_OBJETOS" Width="1.5" PointX="12.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PreCrimeModel.TB_VIOLACAO_TIPO_CRIME" Width="1.5" PointX="12.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PreCrimeModel.TB_VIOLACAO_TIPO_OBJETOS" Width="1.5" PointX="12.75" PointY="11.625" IsExpanded="true" />
+        <AssociationConnector Association="PreCrimeModel.FK_DIM_OBJETOS_FURTADOS" ManuallyRouted="false" />
+        <AssociationConnector Association="PreCrimeModel.FK_DIM_LOCALIDADE" ManuallyRouted="false" />
+        <AssociationConnector Association="PreCrimeModel.FK_DIM_TEMPO" ManuallyRouted="false" />
+        <AssociationConnector Association="PreCrimeModel.FK_DIM_TIPO_CRIME" ManuallyRouted="false" />
+        <AssociationConnector Association="PreCrimeModel.FK_CIDADE_ESTATISTICA" ManuallyRouted="false" />
+        <AssociationConnector Association="PreCrimeModel.FK_CIDADE_OCORRENCIA" ManuallyRouted="false" />
+        <AssociationConnector Association="PreCrimeModel.FK_ESTADO_CIDADE" ManuallyRouted="false" />
+        <AssociationConnector Association="PreCrimeModel.FK_USUARIO_CONFIGURACAO" ManuallyRouted="false" />
+        <AssociationConnector Association="PreCrimeModel.FK_TB_OCORRENCIA_TB_TIPO_OBJETO_OCORRENCIA" ManuallyRouted="false" />
+        <AssociationConnector Association="PreCrimeModel.FK_TIPO_CRIME_OCORRENCIA" ManuallyRouted="false" />
+        <AssociationConnector Association="PreCrimeModel.FK_USUARIO_OCORRENCIA" ManuallyRouted="false" />
+        <AssociationConnector Association="PreCrimeModel.FK_TB_TIPO_OBJETO_TB_TIPO_OBJETO_OCORRENCIA" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

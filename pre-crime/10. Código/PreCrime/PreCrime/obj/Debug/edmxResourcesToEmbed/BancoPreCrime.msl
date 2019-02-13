@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PreCrimeModelStoreContainer" CdmEntityContainer="PreCrimeEntities">
+    <EntitySetMapping Name="DIM_GRUPO_OBJETOS">
+      <EntityTypeMapping TypeName="PreCrimeModel.DIM_GRUPO_OBJETOS">
+        <MappingFragment StoreEntitySet="DIM_GRUPO_OBJETOS">
+          <ScalarProperty Name="ID_GRUPO_OBJETOS" ColumnName="ID_GRUPO_OBJETOS" />
+          <ScalarProperty Name="COD_GRUPO_OBJETOS" ColumnName="COD_GRUPO_OBJETOS" />
+          <ScalarProperty Name="DECRICAO_GRUPO_OBJETO" ColumnName="DECRICAO_GRUPO_OBJETO" />
+          <ScalarProperty Name="ID_OBJETOS_FURTADOS" ColumnName="ID_OBJETOS_FURTADOS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DIM_LOCALIDADE">
+      <EntityTypeMapping TypeName="PreCrimeModel.DIM_LOCALIDADE">
+        <MappingFragment StoreEntitySet="DIM_LOCALIDADE">
+          <ScalarProperty Name="ID_OCALIDADE" ColumnName="ID_OCALIDADE" />
+          <ScalarProperty Name="COD_LOCALIDADE" ColumnName="COD_LOCALIDADE" />
+          <ScalarProperty Name="CIDADE" ColumnName="CIDADE" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="LATITUDE" ColumnName="LATITUDE" />
+          <ScalarProperty Name="LONGITUDE" ColumnName="LONGITUDE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DIM_OBJETOS_FURTADOS">
+      <EntityTypeMapping TypeName="PreCrimeModel.DIM_OBJETOS_FURTADOS">
+        <MappingFragment StoreEntitySet="DIM_OBJETOS_FURTADOS">
+          <ScalarProperty Name="ID_OBJETOS_FURTADOS" ColumnName="ID_OBJETOS_FURTADOS" />
+          <ScalarProperty Name="COD_OBJETOS_FURTADOS" ColumnName="COD_OBJETOS_FURTADOS" />
+          <ScalarProperty Name="TIPO_OBJETO" ColumnName="TIPO_OBJETO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DIM_TEMPO">
+      <EntityTypeMapping TypeName="PreCrimeModel.DIM_TEMPO">
+        <MappingFragment StoreEntitySet="DIM_TEMPO">
+          <ScalarProperty Name="ID_TEMPO" ColumnName="ID_TEMPO" />
+          <ScalarProperty Name="NIVEL" ColumnName="NIVEL" />
+          <ScalarProperty Name="DATA" ColumnName="DATA" />
+          <ScalarProperty Name="DIA" ColumnName="DIA" />
+          <ScalarProperty Name="DIADASEMANA" ColumnName="DIADASEMANA" />
+          <ScalarProperty Name="DIAUTIL" ColumnName="DIAUTIL" />
+          <ScalarProperty Name="FERIADO" ColumnName="FERIADO" />
+          <ScalarProperty Name="TIPOFERIADO" ColumnName="TIPOFERIADO" />
+          <ScalarProperty Name="FIMSEMANA" ColumnName="FIMSEMANA" />
+          <ScalarProperty Name="QUINZENA" ColumnName="QUINZENA" />
+          <ScalarProperty Name="MES" ColumnName="MES" />
+          <ScalarProperty Name="NOMEMES" ColumnName="NOMEMES" />
+          <ScalarProperty Name="FIMMES" ColumnName="FIMMES" />
+          <ScalarProperty Name="TRIMESTRE" ColumnName="TRIMESTRE" />
+          <ScalarProperty Name="NOMETRIMESTRE" ColumnName="NOMETRIMESTRE" />
+          <ScalarProperty Name="SEMESTRE" ColumnName="SEMESTRE" />
+          <ScalarProperty Name="NOMESEMESTRE" ColumnName="NOMESEMESTRE" />
+          <ScalarProperty Name="ANO" ColumnName="ANO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DIM_TIPO_CRIME">
+      <EntityTypeMapping TypeName="PreCrimeModel.DIM_TIPO_CRIME">
+        <MappingFragment StoreEntitySet="DIM_TIPO_CRIME">
+          <ScalarProperty Name="ID_TIPO_CRIME" ColumnName="ID_TIPO_CRIME" />
+          <ScalarProperty Name="COD_TIPO_CRIME" ColumnName="COD_TIPO_CRIME" />
+          <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FATO_CADASTRO_CRIME">
+      <EntityTypeMapping TypeName="PreCrimeModel.FATO_CADASTRO_CRIME">
+        <MappingFragment StoreEntitySet="FATO_CADASTRO_CRIME">
+          <ScalarProperty Name="ID_CADASTRO_CRIME" ColumnName="ID_CADASTRO_CRIME" />
+          <ScalarProperty Name="ID_TEMPO" ColumnName="ID_TEMPO" />
+          <ScalarProperty Name="ID_TIPO_CRIME" ColumnName="ID_TIPO_CRIME" />
+          <ScalarProperty Name="ID_OCALIDADE" ColumnName="ID_OCALIDADE" />
+          <ScalarProperty Name="QUANTIDADE" ColumnName="QUANTIDADE" />
+          <ScalarProperty Name="PREJUIZO" ColumnName="PREJUIZO" />
+          <ScalarProperty Name="DESCRICAO_CRIME" ColumnName="DESCRICAO_CRIME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_CIDADE">
+      <EntityTypeMapping TypeName="PreCrimeModel.TB_CIDADE">
+        <MappingFragment StoreEntitySet="TB_CIDADE">
+          <ScalarProperty Name="COD_CIDADE" ColumnName="COD_CIDADE" />
+          <ScalarProperty Name="CIDADE" ColumnName="CIDADE" />
+          <ScalarProperty Name="LATITUDE" ColumnName="LATITUDE" />
+          <ScalarProperty Name="LONGITUDE" ColumnName="LONGITUDE" />
+          <ScalarProperty Name="COD_ESTADO" ColumnName="COD_ESTADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_CONFIGURACAO">
+      <EntityTypeMapping TypeName="PreCrimeModel.TB_CONFIGURACAO">
+        <MappingFragment StoreEntitySet="TB_CONFIGURACAO">
+          <ScalarProperty Name="COD_CONFIGURACAO" ColumnName="COD_CONFIGURACAO" />
+          <ScalarProperty Name="CIDADE" ColumnName="CIDADE" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="COD_USUARIO" ColumnName="COD_USUARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_ESTADO">
+      <EntityTypeMapping TypeName="PreCrimeModel.TB_ESTADO">
+        <MappingFragment StoreEntitySet="TB_ESTADO">
+          <ScalarProperty Name="COD_ESTADO" ColumnName="COD_ESTADO" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_ESTATISTICAS">
+      <EntityTypeMapping TypeName="PreCrimeModel.TB_ESTATISTICAS">
+        <MappingFragment StoreEntitySet="TB_ESTATISTICAS">
+          <ScalarProperty Name="COD_ESTATISTICA" ColumnName="COD_ESTATISTICA" />
+          <ScalarProperty Name="PERCENTUAL_CRIME" ColumnName="PERCENTUAL_CRIME" />
+          <ScalarProperty Name="QUANTIDADE_CRIME" ColumnName="QUANTIDADE_CRIME" />
+          <ScalarProperty Name="HORARIO_CRIME" ColumnName="HORARIO_CRIME" />
+          <ScalarProperty Name="COD_CIDADE" ColumnName="COD_CIDADE" />
+          <ScalarProperty Name="COD_TIPO_CRIME" ColumnName="COD_TIPO_CRIME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_OCORRENCIA">
+      <EntityTypeMapping TypeName="PreCrimeModel.TB_OCORRENCIA">
+        <MappingFragment StoreEntitySet="TB_OCORRENCIA">
+          <ScalarProperty Name="COD_OCORRENCIA" ColumnName="COD_OCORRENCIA" />
+          <ScalarProperty Name="DATA" ColumnName="DATA" />
+          <ScalarProperty Name="LATITUDE" ColumnName="LATITUDE" />
+          <ScalarProperty Name="LONGITUDE" ColumnName="LONGITUDE" />
+          <ScalarProperty Name="DESCRICAO_OCORRENCIA" ColumnName="DESCRICAO_OCORRENCIA" />
+          <ScalarProperty Name="HORA" ColumnName="HORA" />
+          <ScalarProperty Name="PREJUIZO" ColumnName="PREJUIZO" />
+          <ScalarProperty Name="COD_USUARIO" ColumnName="COD_USUARIO" />
+          <ScalarProperty Name="COD_TIPO_CRIME" ColumnName="COD_TIPO_CRIME" />
+          <ScalarProperty Name="COD_CIDADE" ColumnName="COD_CIDADE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_TIPO_CRIME">
+      <EntityTypeMapping TypeName="PreCrimeModel.TB_TIPO_CRIME">
+        <MappingFragment StoreEntitySet="TB_TIPO_CRIME">
+          <ScalarProperty Name="COD_TIPO_CRIME" ColumnName="COD_TIPO_CRIME" />
+          <ScalarProperty Name="TIPO_CRIME" ColumnName="TIPO_CRIME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_TIPO_OBJETO">
+      <EntityTypeMapping TypeName="PreCrimeModel.TB_TIPO_OBJETO">
+        <MappingFragment StoreEntitySet="TB_TIPO_OBJETO">
+          <ScalarProperty Name="COD_TIPO_OBJETO" ColumnName="COD_TIPO_OBJETO" />
+          <ScalarProperty Name="DESCRICAO_OBJETO" ColumnName="DESCRICAO_OBJETO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_TIPO_OBJETO_OCORRENCIA">
+      <EntityTypeMapping TypeName="PreCrimeModel.TB_TIPO_OBJETO_OCORRENCIA">
+        <MappingFragment StoreEntitySet="TB_TIPO_OBJETO_OCORRENCIA">
+          <ScalarProperty Name="COD_TIPO_ODJETO_OCORRENCIA" ColumnName="COD_TIPO_ODJETO_OCORRENCIA" />
+          <ScalarProperty Name="DECRICAO_TIPO_OBJETO_OCORRENCIA" ColumnName="DECRICAO_TIPO_OBJETO_OCORRENCIA" />
+          <ScalarProperty Name="COD_TIPO_OBJETO" ColumnName="COD_TIPO_OBJETO" />
+          <ScalarProperty Name="COD_OCORRENCIA" ColumnName="COD_OCORRENCIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_USUARIO">
+      <EntityTypeMapping TypeName="PreCrimeModel.TB_USUARIO">
+        <MappingFragment StoreEntitySet="TB_USUARIO">
+          <ScalarProperty Name="COD_USUARIO" ColumnName="COD_USUARIO" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="SENHA" ColumnName="SENHA" />
+          <ScalarProperty Name="CIDADE" ColumnName="CIDADE" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FATO_CRIME_LOCALIDADE">
+      <EntityTypeMapping TypeName="PreCrimeModel.FATO_CRIME_LOCALIDADE">
+        <MappingFragment StoreEntitySet="FATO_CRIME_LOCALIDADE">
+          <ScalarProperty Name="ID_LOCALIDADE" ColumnName="ID_LOCALIDADE" />
+          <ScalarProperty Name="QUANTIDADE" ColumnName="QUANTIDADE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_AUX_LOCALIDADE">
+      <EntityTypeMapping TypeName="PreCrimeModel.TB_AUX_LOCALIDADE">
+        <MappingFragment StoreEntitySet="TB_AUX_LOCALIDADE">
+          <ScalarProperty Name="DATA_CARGA" ColumnName="DATA_CARGA" />
+          <ScalarProperty Name="COD_CIDADE" ColumnName="COD_CIDADE" />
+          <ScalarProperty Name="CIDADE" ColumnName="CIDADE" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="LATITUDE" ColumnName="LATITUDE" />
+          <ScalarProperty Name="LONGITUDE" ColumnName="LONGITUDE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_AUX_OCORRENCIA">
+      <EntityTypeMapping TypeName="PreCrimeModel.TB_AUX_OCORRENCIA">
+        <MappingFragment StoreEntitySet="TB_AUX_OCORRENCIA">
+          <ScalarProperty Name="DATA_CARGA" ColumnName="DATA_CARGA" />
+          <ScalarProperty Name="COD_OCORRENCIA" ColumnName="COD_OCORRENCIA" />
+          <ScalarProperty Name="DATA" ColumnName="DATA" />
+          <ScalarProperty Name="LATITUDE" ColumnName="LATITUDE" />
+          <ScalarProperty Name="LONGITUDE" ColumnName="LONGITUDE" />
+          <ScalarProperty Name="DESCRICAO_OCORRENCIA" ColumnName="DESCRICAO_OCORRENCIA" />
+          <ScalarProperty Name="HORA" ColumnName="HORA" />
+          <ScalarProperty Name="PREJUIZO" ColumnName="PREJUIZO" />
+          <ScalarProperty Name="COD_USUARIO" ColumnName="COD_USUARIO" />
+          <ScalarProperty Name="COD_TIPO_CRIME" ColumnName="COD_TIPO_CRIME" />
+          <ScalarProperty Name="COD_CIDADE" ColumnName="COD_CIDADE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_AUX_OCORRENCIA_OBJETOS">
+      <EntityTypeMapping TypeName="PreCrimeModel.TB_AUX_OCORRENCIA_OBJETOS">
+        <MappingFragment StoreEntitySet="TB_AUX_OCORRENCIA_OBJETOS">
+          <ScalarProperty Name="DATA_CARGA" ColumnName="DATA_CARGA" />
+          <ScalarProperty Name="COD_OCORRENCIA_OBJETO" ColumnName="COD_OCORRENCIA_OBJETO" />
+          <ScalarProperty Name="COD_TIPO_OBJETO" ColumnName="COD_TIPO_OBJETO" />
+          <ScalarProperty Name="DECRICAO_TIPO_OBJETO_OCORRENCIA" ColumnName="DECRICAO_TIPO_OBJETO_OCORRENCIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_AUX_TIPO_DE_CRIME">
+      <EntityTypeMapping TypeName="PreCrimeModel.TB_AUX_TIPO_DE_CRIME">
+        <MappingFragment StoreEntitySet="TB_AUX_TIPO_DE_CRIME">
+          <ScalarProperty Name="DATA_CARGA" ColumnName="DATA_CARGA" />
+          <ScalarProperty Name="COD_TIPO_CRIME" ColumnName="COD_TIPO_CRIME" />
+          <ScalarProperty Name="TIPO_CRIME" ColumnName="TIPO_CRIME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_AUX_TIPO_OBJETOS">
+      <EntityTypeMapping TypeName="PreCrimeModel.TB_AUX_TIPO_OBJETOS">
+        <MappingFragment StoreEntitySet="TB_AUX_TIPO_OBJETOS">
+          <ScalarProperty Name="DATA_CARGA" ColumnName="DATA_CARGA" />
+          <ScalarProperty Name="COD_TIPO_OBJETOS" ColumnName="COD_TIPO_OBJETOS" />
+          <ScalarProperty Name="TIPO_OBJETO" ColumnName="TIPO_OBJETO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_VIOLACAO_LOCALIDADE">
+      <EntityTypeMapping TypeName="PreCrimeModel.TB_VIOLACAO_LOCALIDADE">
+        <MappingFragment StoreEntitySet="TB_VIOLACAO_LOCALIDADE">
+          <ScalarProperty Name="DATA_CARGA" ColumnName="DATA_CARGA" />
+          <ScalarProperty Name="COD_CIDADE" ColumnName="COD_CIDADE" />
+          <ScalarProperty Name="CIDADE" ColumnName="CIDADE" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="LATITUDE" ColumnName="LATITUDE" />
+          <ScalarProperty Name="LONGITUDE" ColumnName="LONGITUDE" />
+          <ScalarProperty Name="DATA_VIOLACAO" ColumnName="DATA_VIOLACAO" />
+          <ScalarProperty Name="DESCRICAO_VIOLACAO" ColumnName="DESCRICAO_VIOLACAO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_VIOLACAO_OCORRENCIA">
+      <EntityTypeMapping TypeName="PreCrimeModel.TB_VIOLACAO_OCORRENCIA">
+        <MappingFragment StoreEntitySet="TB_VIOLACAO_OCORRENCIA">
+          <ScalarProperty Name="DATA_CARGA" ColumnName="DATA_CARGA" />
+          <ScalarProperty Name="ID_TEMPO" ColumnName="ID_TEMPO" />
+          <ScalarProperty Name="ID_TIPO_CRIME" ColumnName="ID_TIPO_CRIME" />
+          <ScalarProperty Name="ID_OCALIDADE" ColumnName="ID_OCALIDADE" />
+          <ScalarProperty Name="QUANTIDADE" ColumnName="QUANTIDADE" />
+          <ScalarProperty Name="PREJUIZO" ColumnName="PREJUIZO" />
+          <ScalarProperty Name="DESCRICAO_CRIME" ColumnName="DESCRICAO_CRIME" />
+          <ScalarProperty Name="DATA_VIOLACAO" ColumnName="DATA_VIOLACAO" />
+          <ScalarProperty Name="DESCRICAO_VIOLACAO" ColumnName="DESCRICAO_VIOLACAO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_VIOLACAO_OCORRENCIA_OBJETOS">
+      <EntityTypeMapping TypeName="PreCrimeModel.TB_VIOLACAO_OCORRENCIA_OBJETOS">
+        <MappingFragment StoreEntitySet="TB_VIOLACAO_OCORRENCIA_OBJETOS">
+          <ScalarProperty Name="DATA_CARGA" ColumnName="DATA_CARGA" />
+          <ScalarProperty Name="COD_OCORRENCIA_OBJETO" ColumnName="COD_OCORRENCIA_OBJETO" />
+          <ScalarProperty Name="COD_TIPO_OBJETO" ColumnName="COD_TIPO_OBJETO" />
+          <ScalarProperty Name="DECRICAO_TIPO_OBJETO_OCORRENCIA" ColumnName="DECRICAO_TIPO_OBJETO_OCORRENCIA" />
+          <ScalarProperty Name="DATA_VIOLACAO" ColumnName="DATA_VIOLACAO" />
+          <ScalarProperty Name="DESCRICAO_VIOLACAO" ColumnName="DESCRICAO_VIOLACAO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_VIOLACAO_TIPO_CRIME">
+      <EntityTypeMapping TypeName="PreCrimeModel.TB_VIOLACAO_TIPO_CRIME">
+        <MappingFragment StoreEntitySet="TB_VIOLACAO_TIPO_CRIME">
+          <ScalarProperty Name="DATA_CARGA" ColumnName="DATA_CARGA" />
+          <ScalarProperty Name="COD_TIPO_CRIME" ColumnName="COD_TIPO_CRIME" />
+          <ScalarProperty Name="TIPO_CRIME" ColumnName="TIPO_CRIME" />
+          <ScalarProperty Name="DATA_VIOLACAO" ColumnName="DATA_VIOLACAO" />
+          <ScalarProperty Name="DESCRICAO_VIOLACAO" ColumnName="DESCRICAO_VIOLACAO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_VIOLACAO_TIPO_OBJETOS">
+      <EntityTypeMapping TypeName="PreCrimeModel.TB_VIOLACAO_TIPO_OBJETOS">
+        <MappingFragment StoreEntitySet="TB_VIOLACAO_TIPO_OBJETOS">
+          <ScalarProperty Name="DATA_CARGA" ColumnName="DATA_CARGA" />
+          <ScalarProperty Name="COD_TIPO_OBJETOS" ColumnName="COD_TIPO_OBJETOS" />
+          <ScalarProperty Name="TIPO_OBJETO" ColumnName="TIPO_OBJETO" />
+          <ScalarProperty Name="DATA_VIOLACAO" ColumnName="DATA_VIOLACAO" />
+          <ScalarProperty Name="DESCRICAO_VIOLACAO" ColumnName="DESCRICAO_VIOLACAO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="INSERT_TB_OCORRENCIA" FunctionName="PreCrimeModel.Store.INSERT_TB_OCORRENCIA" />
+    <FunctionImportMapping FunctionImportName="PRO_AGREGADO" FunctionName="PreCrimeModel.Store.PRO_AGREGADO" />
+    <FunctionImportMapping FunctionImportName="PROCEDURE_DIM_LOCALIDADE" FunctionName="PreCrimeModel.Store.PROCEDURE_DIM_LOCALIDADE" />
+    <FunctionImportMapping FunctionImportName="PROCEDURE_DIM_OBJETOS_FURTADOS" FunctionName="PreCrimeModel.Store.PROCEDURE_DIM_OBJETOS_FURTADOS" />
+    <FunctionImportMapping FunctionImportName="PROCEDURE_DIM_TIPO_CRIME" FunctionName="PreCrimeModel.Store.PROCEDURE_DIM_TIPO_CRIME" />
+    <FunctionImportMapping FunctionImportName="PROCEDURE_GRUPO_OBJETOS" FunctionName="PreCrimeModel.Store.PROCEDURE_GRUPO_OBJETOS" />
+    <FunctionImportMapping FunctionImportName="SP_DIM_TEMPO" FunctionName="PreCrimeModel.Store.SP_DIM_TEMPO" />
+    <FunctionImportMapping FunctionImportName="SP_FATO_CADASTRAR" FunctionName="PreCrimeModel.Store.SP_FATO_CADASTRAR" />
+    <FunctionImportMapping FunctionImportName="SP_OLTP_LOCALIDADE" FunctionName="PreCrimeModel.Store.SP_OLTP_LOCALIDADE" />
+    <FunctionImportMapping FunctionImportName="SP_OLTP_OCORRENCIA" FunctionName="PreCrimeModel.Store.SP_OLTP_OCORRENCIA" />
+    <FunctionImportMapping FunctionImportName="SP_OLTP_OCORRENCIA_TIPO_OBJETO" FunctionName="PreCrimeModel.Store.SP_OLTP_OCORRENCIA_TIPO_OBJETO" />
+    <FunctionImportMapping FunctionImportName="SP_OLTP_TIPO_CRIME" FunctionName="PreCrimeModel.Store.SP_OLTP_TIPO_CRIME" />
+    <FunctionImportMapping FunctionImportName="SP_OLTP_TIPO_OBJETO" FunctionName="PreCrimeModel.Store.SP_OLTP_TIPO_OBJETO" />
+  </EntityContainerMapping>
+</Mapping>
